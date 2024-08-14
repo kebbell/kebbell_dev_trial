@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Template</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <!-- Avatar image in top left corner -->
+        <img src="/images/avatar_smoke.jpg" class="avatar" alt="Avatar">
+        <a href="#" class="sidebar-item active">
+            <i class="fa fa-home icon-large"></i>
+            <p>HOME</p>
+        </a>
+        <a href="#about" class="sidebar-item">
+            <i class="fa fa-user icon-large"></i>
+            <p>ABOUT</p>
+        </a>
+        <a href="#photos" class="sidebar-item">
+            <i class="fa fa-eye icon-large"></i>
+            <p>PHOTOS</p>
+        </a>
+        <a href="#contact" class="sidebar-item">
+            <i class="fa fa-envelope icon-large"></i>
+            <p>CONTACT</p>
+        </a>
+    </nav>
+
+    <!-- Navbar on small screens -->
+    <div class="navbar" id="myNavbar">
+        <div class="navbar-content">
+            <a href="#" class="navbar-item">HOME</a>
+            <a href="#about" class="navbar-item">ABOUT</a>
+            <a href="#photos" class="navbar-item">PHOTOS</a>
+            <a href="#contact" class="navbar-item">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="main-content" id="main">
+        <!-- Header/Home -->
+        <header class="header" id="home">
+            <h1 class="header-title">I'm John Doe.</h1>
+            <p class="header-subtitle">Photographer and Web Designer.</p>
+            <img src="/images/man_smoke.jpg" alt="John Doe" class="header-image">
+        </header>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <h2 class="section-title">My Name</h2>
+            <hr class="section-divider">
+            <p>Some text about me. I am lorem ipsum consectetur adipiscing elit...</p>
+            <h3 class="skills-title">My Skills</h3>
+            <p class="skill">Photography</p>
+            <div class="skill-bar">
+                <div class="skill-level" style="width: 95%;"></div>
+            </div>
+            <p class="skill">Web Design</p>
+            <div class="skill-bar">
+                <div class="skill-level" style="width: 85%;"></div>
+            </div>
+            <p class="skill">Photoshop</p>
+            <div class="skill-bar">
+                <div class="skill-level" style="width: 80%;"></div>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">11+</span><br>Partners
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">55+</span><br>Projects Done
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">89+</span><br>Happy Clients
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">150+</span><br>Meetings
+                </div>
+            </div>
+            <button class="download-btn">Download Resume</button>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio-section" id="photos">
+            <h2 class="section-title">My Photos</h2>
+            <hr class="section-divider">
+            <div class="photo-grid">
+                <img src="/images/wedding.jpg" alt="Wedding" class="photo-item">
+                <img src="/images/rocks.jpg" alt="Rocks" class="photo-item">
+                <img src="/images/sailboat.jpg" alt="Sailboat" class="photo-item">
+                <img src="/images/underwater.jpg" alt="Underwater" class="photo-item">
+                <img src="/images/chef.jpg" alt="Chef" class="photo-item">
+                <img src="/images/wedding.jpg" alt="Wedding" class="photo-item">
+                <img src="/images/p6.jpg" alt="Misc" class="photo-item">
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <h2 class="section-title">Contact Me</h2>
+            <hr class="section-divider">
+            <div class="contact-info">
+                <p><i class="fa fa-map-marker fa-fw icon"></i> Chicago, US</p>
+                <p><i class="fa fa-phone fa-fw icon"></i> Phone: +00 151515</p>
+                <p><i class="fa fa-envelope fa-fw icon"></i> Email: mail@mail.com</p>
+            </div>
+            <p>Let's get in touch. Send me a message:</p>
+            <form action="/action_page.php" method="post">
+                <input class="form-input" type="text" placeholder="Name" required name="Name">
+                <input class="form-input" type="email" placeholder="Email" required name="Email">
+                <input class="form-input" type="text" placeholder="Subject" required name="Subject">
+                <textarea class="form-input" placeholder="Message" required name="Message"></textarea>
+                <button class="send-btn" type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <i class="fa fa-facebook-official icon"></i>
+        <i class="fa fa-instagram icon"></i>
+        <i class="fa fa-snapchat icon"></i>
+        <i class="fa fa-pinterest-p icon"></i>
+        <i class="fa fa-twitter icon"></i>
+        <i class="fa fa-linkedin icon"></i>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
