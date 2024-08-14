@@ -1,3 +1,12 @@
+// D.QS
+const slides = document.querySelectorAll('.slide');
+const btnLeft = document.querySelector('.slider__btn--left');
+const btnRight = document.querySelector('.slider__btn--right');
+const dotContainer = document.querySelector('.dots');
+const backToTopButton = document.createElement('button');
+
+
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('nav ul li a').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
@@ -11,7 +20,6 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
 });
 
 // Back to top button functionality
-const backToTopButton = document.createElement('button');
 backToTopButton.innerText = '↑';
 backToTopButton.style.position = 'fixed';
 backToTopButton.style.bottom = '20px';
@@ -39,4 +47,56 @@ backToTopButton.addEventListener('click', () => {
       top: 0,
       behavior: 'smooth'
   });
+});
+
+
+// SLIDER
+let currentSlide = 0;
+const maxSlide = slides.length;
+
+const goToSlide = function (slide) {
+  slides.forEach((s, i) => {
+    s.style.transform = `translateX(${100 * (i - slide)}%)`;
+  });
+};
+goToSlide(0);
+
+// NEXT AND PREVIOUS BUTTON
+const nextSlide = function () {
+  if (currentSlide === maxSlide - 1) currentSlide = 0;
+  else currentSlide++;
+  // console.log(currentSlide);
+  goToSlide(currentSlide);
+};
+
+const previousSlide = function () {
+  if (currentSlide === 0) currentSlide = maxSlide - 1
+  else currentSlide--;
+  // console.log(currentSlide);
+  goToSlide(currentSlide);
+};
+
+
+
+btnRight.addEventListener('click', nextSlide);
+btnLeft.addEventListener('click', previousSlide);
+
+// PART 2
+// DOTS
+const createDots = function () {
+  slides.forEach(function (_, i) {
+    dotContainer.insertAdjacentHTML(
+      'beforeend',
+      `<button class="dots__dot" data-slide="${i}"></button>`
+    );
+  });
+};
+createDots();
+dotContainer.addEventListener('click', function (e) {
+  if (e.target.classList.contains('dots__dot')) {
+    const { slide } = e.target.dataset;
+    slides.forEach((s, index) => {
+      s.style.transform = `translateX(${100 * (index - slide)}%)`;
+    });
+  }
 });
