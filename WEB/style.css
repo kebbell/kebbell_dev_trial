@@ -17,13 +17,12 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: #000;
+  color: #fff;
 }
 
-/* Header */
 header {
-  background-color: #000;
+  background-color: #000000;
   overflow: hidden;
 }
 
@@ -32,43 +31,55 @@ header ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #000;
-  display: flex;
-  justify-content: space-around;
+  background-color: #000000;
+
 }
 
 header li {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 3%;
+  float: left;
   width: 13%;
 }
 
 header a {
   display: block;
-  color: var(--text-color);
+  color: #ffffff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
   font-size: 1.25rem;
 }
 
 header a:hover {
   background-color: #444;
 }
+.gif {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 15rem;
+  z-index: 1001;
+  /* display: none; */
+}
 
-/* Main Content */
 main {
-  max-width: 1200px;
+  max-width: 12000px;
   margin: 0 auto;
   padding: 2rem;
 }
 
 section {
   padding: 30px;
-  max-width: 900px;
+  max-width: 9000px;
   margin: 0 auto;
 }
 
 h1 {
-  border-bottom: 2px solid var(--blue);
+  border-bottom: 2px solid #1e90ff;
   padding-bottom: 10px;
   margin-bottom: 20px;
   font-size: 2em;
@@ -83,18 +94,32 @@ ul li {
   margin-bottom: 10px;
 }
 
-/* Slider */
+
+
+.dance {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.9;
+  animation-duration: 10s;
+}
+
+/* SLIDER */
 .section {
-  padding: 0;
+  padding: 0rem 0;
   margin-top: 5rem;
   width: 80%;
 }
-
 .slider {
   max-width: 100rem;
   height: 25rem;
   margin: 0 auto;
   position: relative;
+
+  /* IN THE END */
   overflow: hidden;
 }
 
@@ -102,24 +127,31 @@ ul li {
   position: absolute;
   top: 0;
   width: 100%;
+  height: 20rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* THIS creates the animation! */
   transition: transform 1s;
 }
 
 .slide > img {
+  /* Only for images that have different size than slide */
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
 }
 
 .slider__btn {
   position: absolute;
   top: 50%;
   z-index: 10;
+
   border: none;
   background: rgba(255, 255, 255, 0.7);
+  font-family: inherit;
   color: #333;
   border-radius: 50%;
   height: 3rem;
@@ -156,17 +188,40 @@ ul li {
   margin-right: 1.25rem;
   cursor: pointer;
   transition: all 0.5s;
+
+  /* Only necessary when overlying images */
+  /* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */
+}
+
+.dots__dot:last-child {
+  margin: 0;
 }
 
 .dots__dot--active {
+  /* background-color: #fff; */
   background-color: #888;
   opacity: 1;
 }
 
-/* Testimonials */
+#skills {
+  width: 1000px;
+}
+
+/* TESTIMONIALS */
 .testimonial {
   width: 65%;
   position: relative;
+}
+
+.testimonial::before {
+  position: absolute;
+  top: -5.7rem;
+  left: -6.8rem;
+  line-height: 1;
+  font-size: 20rem;
+  font-family: inherit;
+  color: var(--color-primary);
+  z-index: -1;
 }
 
 .testimonial__header {
@@ -182,9 +237,20 @@ ul li {
   color: #dedede;
 }
 
-.testimonial__image,
-.testimonial__image2,
-.testimonial__image3 {
+.testimonial__author {
+  margin-left: 3rem;
+  font-style: normal;
+
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  column-gap: 2rem;
+}
+
+.section__title--testimonials {
+  margin-bottom: 4rem;
+}
+
+.testimonial__image {
   opacity: 0.3;
   position: absolute;
   z-index: -1;
@@ -196,7 +262,87 @@ ul li {
   object-fit: cover;
 }
 
-/* Tic Tac Toe Game */
+/* Additional styles for better image display */
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  min-height: 400px; /* Set this according to your design requirements */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.testimonial {
+  position: relative;
+  z-index: 1; /* Ensures that text appears above the image */
+  text-align: center;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.testimonial__header,
+.testimonial__text {
+  color: #fff; /* Ensures text is visible over the background image */
+  position: relative;
+}
+
+.testimonial__header {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial__text {
+  font-size: 1rem;
+}
+
+
+.slide > img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Adjust if needed */
+}
+/* 
+.slider {
+  height: ; /* Adjust to fit image height 
+} */
+
+.slide {
+  height: auto; /* Ensure slide height matches image height */
+}
+
+/* GAMES */
+
+/* message */
+
+#projects {
+  padding: 50px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: center;
+}
+#message {
+  padding: 1.75rem;
+  display: flex;
+  width: 41%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--blue);
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 0 auto 2.5rem;
+  margin-top: 1.5rem;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* TIC TAC TOE GAME */
+
 .tictactoe-game {
   display: grid;
   grid-template-columns: repeat(3, 100px);
@@ -216,10 +362,13 @@ ul li {
   cursor: pointer;
 }
 
+/* CROSS/CIRCLE */
+
 .cross::before,
 .circle::before,
 .cross-hover::before,
 .circle-hover::before {
+  content: "\274C";
   font-size: 4rem;
   display: flex;
   justify-content: center;
@@ -227,11 +376,8 @@ ul li {
   height: 100%;
 }
 
-.cross::before {
-  content: "\274C";
-}
-
-.circle::before {
+.circle::before,
+.circle-hover::before {
   content: "\26AB";
 }
 
@@ -241,9 +387,18 @@ ul li {
   filter: grayscale(100%);
 }
 
-/* Overlay */
+/* .circle {
+  
+}
+.cross {
+  position: relative;
+  background-color: red;
+} */
+
+/* OVERLAY */
+
 .overlay {
-  max-height: 0;
+  max-height: 0px;
   position: fixed;
   top: 0;
   left: 0;
@@ -256,11 +411,6 @@ ul li {
   font-size: 3rem;
   color: #f3f3f3;
   overflow: hidden;
-  transition: max-height 0.5s ease;
-}
-
-.overlay.active {
-  max-height: 100vh;
 }
 
 .overlay h1 {
@@ -282,7 +432,7 @@ ul li {
   border-radius: 0.5rem;
   border: none;
   outline: none;
-  color: var(--text-color);
+  color: #ffffff;
   font-size: 1.25rem;
   background-size: 200% auto;
   transition: 0.5s ease-in-out;
@@ -295,14 +445,35 @@ ul li {
 }
 
 .btn-restart {
-  background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
+  background-image: linear-gradient(
+    to right,
+    #314755 0%,
+    #26a0da 51%,
+    #314755 100%
+  );
 }
 
 .btn-quit {
-  background-image: linear-gradient(to right, #d31027 0%, #5c0711 51%, #ea384d 100%);
+  background-image: linear-gradient(
+    to right,
+    #d31027 0%,
+    #5c0711 51%,
+    #ea384d 100%
+  );
 }
 
-/* Pop-up Form */
+.overlay.active {
+  max-height: 100vh;
+}
+
+.highlight {
+  background-color: lightblue;
+}
+
+
+/* POP UP */
+
+/* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
   background-color: var(--blue);
   color: white;
@@ -323,6 +494,7 @@ ul li {
   transform: translate(-50%, -50%);
 }
 
+/* The popup form - hidden by default */
 .form-popup {
   display: none;
   position: fixed;
@@ -332,12 +504,14 @@ ul li {
   z-index: 9;
 }
 
+/* Add styles to the form container */
 .form-container {
   max-width: 300px;
   padding: 10px;
   background-color: white;
 }
 
+/* Full-width input fields */
 .form-container input[type="text"],
 .form-container input[type="password"] {
   width: 100%;
@@ -347,12 +521,14 @@ ul li {
   background: #f1f1f1;
 }
 
+/* When the inputs get focus, do something */
 .form-container input[type="text"]:focus,
 .form-container input[type="password"]:focus {
   background-color: #ddd;
   outline: none;
 }
 
+/* Set a style for the submit/login button */
 .form-container .btn {
   background-color: #04aa6d;
   color: white;
@@ -364,16 +540,43 @@ ul li {
   opacity: 0.8;
 }
 
+/* Add a red background color to the cancel button */
 .form-container .cancel {
-  background-color: var(--red);
+  background-color: red;
 }
 
+/* Add some hover effects to buttons */
 .form-container .btn:hover,
 .open-button:hover {
   opacity: 1;
 }
 
-/* Footer */
+/* Random section */
+
+.gamesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.gameTitle {
+  text-align: center;
+  font-size: 40px;
+}
+
+.random {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h3 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* Footer styles */
 .footer {
   display: flex;
   justify-content: space-between;
@@ -382,11 +585,105 @@ ul li {
   padding: 3px;
   padding-bottom: 5px;
   background-color: #222;
-  color: var(--text-color);
+  color: #fff;
 }
 
 .footer .icon {
   margin: 0 10px;
   font-size: 1.5em;
-  transition: opacity 0
+  transition: opacity 0.3s;
 }
+
+.footer .icon:hover {
+  opacity: 0.7;
+}
+
+.footer-text a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+/* Contact section */
+#contact {
+  padding: 50px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+#contact ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#contact ul li {
+  margin: 10px 0;
+}
+
+#contact ul li a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+#contact ul li a:hover {
+  text-decoration: underline;
+}
+
+.link {
+  background-color: var(--blue);
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.8;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  list-style-type: none;
+  margin-bottom: 0.5rem;
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .navbar {
+    display: block;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .pricing .pricing-card {
+    width: 100%;
+  }
+
+  .photo-item {
+    width: 100%;
+  }
+}
+

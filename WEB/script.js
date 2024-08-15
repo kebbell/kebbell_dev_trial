@@ -101,10 +101,16 @@ const activateDot = function (slide) {
 };
 
 const goToSlide = function (slide) {
-  slides.forEach(
-    (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
-  );
+  slides.forEach((s, i) => {
+    s.style.transform = `translateX(${100 * (i - slide)}%)`;
+  });
 };
+
+// const goToSlide = function (slide) {
+//   slides.forEach(
+//     (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+//   );
+// };
 
 // Next slide
 const nextSlide = function () {
@@ -388,6 +394,9 @@ function draw() {
 }
 
 draw();
+
+///////////////////////////////////
+// SNAKES AND LADDERS
 
 
 ///////////////////////////////////////////////////////
