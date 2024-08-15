@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Developer Portfolio</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script defer src="script.js"></script>
   </head>
   <body>
@@ -23,155 +26,178 @@
     </header>
     <main>
 
+      <img class="gif" src="./pics/IXNp.gif" alt="" />
 
-    <img class="gif" src="./pics/IXNp.gif" alt="" />
-
-    <section id="about" class="section" id="section--3">
-      <div class="slider">
-        <div class="slide slide--1">
-          <div class="testimonial">
-            <img
-              class="testimonial__image"
-              src="./pics/Diego Maradona vs Sócrates Brazil 🇧🇷 vs Argentina 🇦🇷.jpeg"
-              alt="Diego Maradona vs Socrates"
-            />
-            <h5 class="testimonial__header">A Passion for Sport</h5>
-            <blockquote class="testimonial__text">
-              As a dedicated sports enthusiast, my weekends are often filled with
-              the excitement of football, cricket, and rugby. I'm a lifelong Norwich
-              City FC fan, cheering for the Canaries through every match. Cricket
-              and rugby also hold a special place in my heart, offering a balance of
-              strategy, skill, and adrenaline.
-            </blockquote>
+      <section id="about" class="section" id="section--3">
+        <div class="slider">
+          <div class="slide slide--1">
+            <div class="testimonial">
+              <img
+                class="testimonial__image"
+                src="./pics/Diego Maradona vs Sócrates Brazil 🇧🇷 vs Argentina 🇦🇷.jpeg"
+                alt="Diego Maradona vs Socrates"
+              />
+              <h5 class="testimonial__header">A Passion for Sport</h5>
+              <blockquote class="testimonial__text">
+                As a dedicated sports enthusiast, my weekends are often filled
+                with the excitement of football, cricket, and rugby. I'm a
+                lifelong Norwich City FC fan, cheering for the Canaries through
+                every match. Cricket and rugby also hold a special place in my
+                heart, offering a balance of strategy, skill, and adrenaline.
+              </blockquote>
+            </div>
           </div>
-        </div>
-    
-        <div class="slide slide--2">
-          <div class="testimonial">
-            <img class="testimonial__image" src="./pics/amoeba music hollywood.jpeg" alt="Music" />
-            <h5 class="testimonial__header">Music: A Journey Through Genres</h5>
-            <blockquote class="testimonial__text">
-              Music is my universal language, and I have a deep love for all genres,
-              from jazz and classical to hip-hop and electronic. My passion for
-              crate digging takes me on endless adventures in search of rare vinyl
-              records and hidden gems.
-            </blockquote>
+
+          <div class="slide slide--2">
+            <div class="testimonial">
+              <img
+                class="testimonial__image"
+                src="./pics/amoeba music hollywood.jpeg"
+                alt="Music"
+              />
+              <h5 class="testimonial__header">
+                Music: A Journey Through Genres
+              </h5>
+              <blockquote class="testimonial__text">
+                Music is my universal language, and I have a deep love for all
+                genres, from jazz and classical to hip-hop and electronic. My
+                passion for crate digging takes me on endless adventures in
+                search of rare vinyl records and hidden gems.
+              </blockquote>
+            </div>
           </div>
-        </div>
-    
-        <div class="slide slide--3">
-          <div class="testimonial">
-            <img class="testimonial__image" src="./pics/I wanna go here.jpeg" alt="Travel" />
-            <h5 class="testimonial__header">Exploring Japan and Its Rich Culture</h5>
-            <blockquote class="testimonial__text">
-              Japan's rich culture and cuisine have always fascinated me. From the
-              vibrant streets of Tokyo to the serene temples of Kyoto, I'm captivated
-              by the country's blend of tradition and modernity.
-            </blockquote>
+
+          <div class="slide slide--3">
+            <div class="testimonial">
+              <img
+                class="testimonial__image"
+                src="./pics/I wanna go here.jpeg"
+                alt="Travel"
+              />
+              <h5 class="testimonial__header">
+                Exploring Japan and Its Rich Culture
+              </h5>
+              <blockquote class="testimonial__text">
+                Japan's rich culture and cuisine have always fascinated me. From
+                the vibrant streets of Tokyo to the serene temples of Kyoto, I'm
+                captivated by the country's blend of tradition and modernity.
+              </blockquote>
+            </div>
           </div>
+
+          <button class="slider__btn slider__btn--left">&larr;</button>
+          <button class="slider__btn slider__btn--right">&rarr;</button>
+          <div class="dots"></div>
         </div>
-    
-        <button class="slider__btn slider__btn--left">&larr;</button>
-        <button class="slider__btn slider__btn--right">&rarr;</button>
-        <div class="dots"></div>
-      </div>
-    </section>
-    
-    
+      </section>
 
-    <section id="skills">
-      <h1>Skills</h1>
-      <ul>
-        <li>HTML & CSS</li>
-        <li>JavaScript</li>
-        <li>React.js</li>
-        <li>Node.js</li>
-        <li>Version Control (Git & GitHub)</li>
-        <li>SQL & NoSQL Databases</li>
-        <li>Agile Methodologies</li>
-      </ul>
-    </section>
+      <section id="skills">
+        <h1>Skills</h1>
+        <ul>
+          <li>HTML & CSS</li>
+          <li>JavaScript</li>
+          <li>React.js</li>
+          <li>Node.js</li>
+          <li>Version Control (Git & GitHub)</li>
+          <li>SQL & NoSQL Databases</li>
+          <li>Agile Methodologies</li>
+        </ul>
+      </section>
 
-    <section id="projects">
-      <h1 class="gameTitle">Games</h1>
-      <p class="gameintro">Here are some of my recent games:</p>
-      <div class="gameList">
-      <div class="message" id="message">Player 1</div>
+      <section id="music">
+        <h1 class="musicTitle">Music</h1>
+        <p class="musicintro">Here are some bangers on wax:</p>
+        <div id="musicContainer">
+          <iframe width="50%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1835452833&color=%233f3933&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+          </iframe>
+        </div>
+      </section>
 
-      <div class="tictactoe-game">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-      </div>
-
-      <div class="overlay" id="overlay">
-        <div>
-          <h1>Game Over!</h1>
-          <div class="btn-grid">
-            <button class="btn btn-restart" id="btn-restart">
-              <i class="fas fa-sync"></i> Restart
-            </button>
-
-            <button class="btn btn-quit" id="btn-quit">
-              <i class="fas power-off"></i> Quit
-            </button>
+      <section id="projects">
+        <h1 class="gameTitle">Games</h1>
+        <p class="gameintro">Here are some of my recent games:</p>
+        
+        <div class="gameList">
+          <div class="message" id="message">Player 1</div>
+      
+          <div class="tictactoe-game">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
           </div>
+      
+          <div class="overlay" id="overlay">
+            <div>
+              <h1>Game Over!</h1>
+              <div class="btn-grid">
+                <button class="btn btn-restart" id="btn-restart">
+                  <i class="fas fa-sync"></i> Restart
+                </button>
+      
+                <button class="btn btn-quit" id="btn-quit">
+                  <i class="fas power-off"></i> Quit
+                </button>
+              </div>
+            </div>
+          </div>
+      
+          <audio src="./click.mp3" id="click"></audio>
+          <audio src="./gameover.mp3" id="gameover"></audio>
+      
+          <!-- Canvas for Flappy Bird game at the bottom -->
+          <div class="random">
+            <canvas id="canvas" width="288" height="512"></canvas>
+          </div>
+          
         </div>
-      </div>
+        
+        <script src="flappyBird.js"></script>
+      </section>
       
 
-      <audio src="./click.mp3" id="click"></audio>
-      <audio src="./gameover.mp3" id="gameover"></audio>
+      <section id="contact">
+        <h1>Contact</h1>
+        <p>Feel free to reach out to me through the following platforms:</p>
+        <div>
+          <button class="link">Email: samuelkebbell@gmail.com</button>
+        </div>
+        <div>
+          <button
+            class="link"
+            onclick="window.location.href='https://linkedin.com/in/sam-kebbell-568b08214/'"
+          >
+            LinkedIn: linkedin.com/in/sam-kebbell-568b08214/
+          </button>
+        </div>
+        <div>
+          <button
+            class="link"
+            onclick="window.location.href='https://github.com/kebbell'"
+          >
+            GitHub: github.com/kebbell
+          </button>
+        </div>
+      </section>
+    </main>
 
-      <div class="random">
-          <canvas id="canvas" width="288" height="512"></canvas>
-      </div>
-      <script src="flappyBird.js"></script>
-    </div>
-
-
-    </section>
-
-    <section id="contact">
-      <h1>Contact</h1>
-      <p>Feel free to reach out to me through the following platforms:</p>
-      <div>
-        <button class="link">
-          Email: samuelkebbell@gmail.com
-        </button>
-      </div>
-      <div>
-        <button class="link" onclick="window.location.href='https://linkedin.com/in/sam-kebbell-568b08214/'">
-          LinkedIn: linkedin.com/in/sam-kebbell-568b08214/
-        </button>
-      </div>
-      <div>
-        <button class="link" onclick="window.location.href='https://github.com/kebbell'">
-          GitHub: github.com/kebbell
-        </button>
-      </div>
-    </section>
-  </main>
-
-        <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer">
       <p>&copy; By Kebbell, 2024. All rights reserved.</p>
       <div class="footer-icons">
-      <i class="fa fa-facebook-official icon"></i>
-      <i class="fa fa-instagram icon"></i>
-      <i class="fa fa-snapchat icon"></i>
-      <i class="fa fa-pinterest-p icon"></i>
-      <i class="fa fa-twitter icon"></i>
-      <i class="fa fa-linkedin icon"></i>
+        <i class="fa fa-facebook-official icon"></i>
+        <i class="fa fa-instagram icon"></i>
+        <i class="fa fa-snapchat icon"></i>
+        <i class="fa fa-pinterest-p icon"></i>
+        <i class="fa fa-twitter icon"></i>
+        <i class="fa fa-linkedin icon"></i>
       </div>
-  </footer>
-
-
+    </footer>
   </body>
 </html>

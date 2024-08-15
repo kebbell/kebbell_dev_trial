@@ -57,6 +57,7 @@ header a {
 header a:hover {
   background-color: #444;
 }
+
 .gif {
   position: fixed;
   bottom: 1rem;
@@ -230,6 +231,38 @@ ul li {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+/* MUSIC */
+#music {
+  text-align: center; /* Center text within the music section */
+  padding: 2rem;
+}
+
+#musicContainer {
+  margin-top: 1rem;
+}
+
+.musicintro {
+  margin-bottom: 1.75rem;
+}
+
+.iframe-description {
+  font-size: 166px;
+  color: #cccccc;
+  margin-top: 0.5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.iframe-description a {
+  color: #cccccc;
+  text-decoration: none;
+}
+
+.iframe-description a:hover {
+  text-decoration: underline;
 }
 
 
@@ -478,7 +511,7 @@ ul li {
   grid-gap: 20px;
 }
 
-.gameTitle {
+.gameTitle, .musicTitle, .randomTitle {
   text-align: center;
   font-size: 40px;
 }
