@@ -371,7 +371,6 @@ h1 {
 /* message */
 
 #projects {
-  display: flex;
   padding: 30px;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -396,13 +395,8 @@ h1 {
 
 /* TIC TAC TOE GAME */
 .gamesList{
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
-}
-.random {
-
 }
 
 .tictactoe-game {
