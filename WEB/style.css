@@ -394,17 +394,37 @@ h1 {
 }
 
 /* TIC TAC TOE GAME */
-.gamesList{
-  display: flex !important;
-  justify-content: space-between;
+/* Container for the games list */
+.gamesList {
+  display: flex;
+  gap: 20px; /* Space between games */
 }
 
+/* Style for each game item */
+.gameItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background-color);
+
+  padding: 20px;
+  flex: 1; /* Allow items to grow and fill the container */
+}
+
+/* Style specifically for Tic Tac Toe */
 .tictactoe-game {
+  max-width: 300px; /* Adjust width as needed */
+  flex: 1 1 50%; /* Tic Tac Toe takes up about 30% of the container */
+
+  margin: 0 auto;
+  padding: 20px 40px;
+}
+.tictactoe-grid {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-gap: 10px;
   justify-content: center;
-  margin-top: 20px;
+  margin: 0 auto;
 }
 
 .cell {
@@ -417,6 +437,26 @@ h1 {
   font-size: 36px;
   cursor: pointer;
 }
+
+/* Style specifically for Snake */
+.snake-game {
+  flex: 1 1 70%; /* Snake game takes up the remaining space */
+}
+
+.snake-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+  width: 100%;
+  height: 100%;
+}
+
+#game {
+  width: 100%;
+  height: auto;
+}
+
 
 /* CROSS/CIRCLE */
 

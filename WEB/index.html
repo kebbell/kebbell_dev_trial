@@ -134,10 +134,11 @@
       <section id="projects">
         <h1 class="gameTitle">Games</h1>
         <p class="gameintro"></p>
-        <div class="flex">
-          <div class="gameList">
+        <div class="gamesList">
+          <!-- Tic Tac Toe Section -->
+          <div class="gameItem tictactoe-game">
             <h2>Tic Tac Toe</h2>
-            <div class="tictactoe-game">
+            <div class="tictactoe-grid">
               <div class="cell"></div>
               <div class="cell"></div>
               <div class="cell"></div>
@@ -163,15 +164,17 @@
             </div>
             <audio src="./click.mp3" id="click"></audio>
             <audio src="./gameover.mp3" id="gameover"></audio>
-
-            <h2>Snakes
-            </h2>
-            <div class="random">
+          </div>
+          <!-- Snake Game Section -->
+          <div class="gameItem snake-game">
+            <h2>Snake</h2>
+            <div class="snake-container">
               <canvas id="game" width="750" height="500"></canvas>
             </div>
           </div>
         </div>
       </section>
+      
 
       <section style="text-align: center">
         <h1>Team of the Week</h1>
