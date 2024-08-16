@@ -20,12 +20,12 @@
           <li><a href="#music">Music</a></li>
           <li><a href="#space">Space</a></li>
           <li><a href="#projects">Games</a></li>
+          <li><a href="#totw">Totw</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
     <main>
-
       <img class="gif" src="./pics/IXNp.gif" alt="" />
 
       <section id="about" class="section" id="section--3">
@@ -92,35 +92,49 @@
       </section>
 
       <section id="skills">
-        <h1>Skills</h1>
-        <ul>
-          <li>HTML & CSS</li>
-          <li>JavaScript</li>
-          <li>React.js</li>
-          <li>Node.js</li>
-          <li>Version Control (Git & GitHub)</li>
-          <li>SQL & NoSQL Databases</li>
-          <li>Agile Methodologies</li>
-        </ul>
+        <h1></h1>
+        <div class="skills-list">
+          <div class="skill" id="htmlSkill">
+            <button class="skill-btn" onclick="window.open('https://www.nts.live/videos/nts-rush-objekt', '_blank')">SET OF THE WEEK</button>
+            <img src="html-logo.png" class="skill-image" alt="HTML Logo">
+          </div>
+          <div class="skill" id="cssSkill">
+            <button class="skill-btn" onclick="window.open('https://www.discogs.com/release/326975-Rapina-Brothers-Im-In-Love', '_blank')">PICK OF THE WEEK</button>
+            <img src="css-logo.png" class="skill-image" alt="CSS Logo">
+          </div>
+        </div>
       </section>
+      
 
       <section id="music">
-        <h1 class="musicTitle">Music</h1>
-        <p class="musicintro">Here are some bangers on wax:</p>
+        <h1 class="musicTitle"> </h1>
+        <p class="musicintro"> </p>
         <div id="musicContainer">
-          <iframe width="50%" height="300" scrolling="no" frameborder="no" allow="autoplay"
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1835452833&color=%233f3933&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+          <iframe
+          class="music"
+            width="50%"
+            height="450"
+            scrolling="no"
+            frameborder="no"
+
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1835452833&color=%233f3933&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+          >
           </iframe>
         </div>
       </section>
 
+
+x
       <section id="projects">
-        <h1 class="gameTitle">Games</h1>
-        <p class="gameintro">Here are some of my recent games:</p>
-        
+         
+        <h1 class="gameTitle">Snake 🐍</h1>
+        <p class="gameintro"></p>
+
+        <section class="flex">
         <div class="gameList">
           <div class="message" id="message">Player 1</div>
-      
+
           <div class="tictactoe-game">
             <div class="cell"></div>
             <div class="cell"></div>
@@ -132,7 +146,7 @@
             <div class="cell"></div>
             <div class="cell"></div>
           </div>
-      
+
           <div class="overlay" id="overlay">
             <div>
               <h1>Game Over!</h1>
@@ -140,27 +154,40 @@
                 <button class="btn btn-restart" id="btn-restart">
                   <i class="fas fa-sync"></i> Restart
                 </button>
-      
+
                 <button class="btn btn-quit" id="btn-quit">
                   <i class="fas power-off"></i> Quit
                 </button>
               </div>
             </div>
           </div>
-      
+
           <audio src="./click.mp3" id="click"></audio>
           <audio src="./gameover.mp3" id="gameover"></audio>
-      
-          <!-- Canvas for Flappy Bird game at the bottom -->
-          <div class="random">
-            <canvas id="canvas" width="288" height="512"></canvas>
-          </div>
-          
+
+          <!-- Canvas for Snakes game at the bottom -->
+
         </div>
-        
-        <script src="flappyBird.js"></script>
+
+        <div class="random">
+          <canvas id="game" width="750" height="500"></canvas>
+        </div>
       </section>
-      
+      </section>
+      <section
+        style="margin-top: 2rem; margin-bottom: 2rem; text-align: center"
+      >
+        <h1></h1>
+        <iframe
+          id="sofa-totw-embed-18-61961-14118"
+          width="700"
+          height="600"
+          style="display: block; margin: 90px auto"
+          src="https://widgets.sofascore.com/embed/unique-tournament/18/season/61961/round/14118/teamOfTheWeek?showCompetitionLogo=true&widgetTheme=light&widgetTitle=Championship"
+          frameborder="0"
+          scrolling="no"
+        ></iframe>
+      </section>
 
       <section id="contact">
         <h1>Contact</h1>
