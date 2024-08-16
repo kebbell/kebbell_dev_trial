@@ -60,35 +60,32 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// // Back to top button functionality
-// const backToTopButton = document.createElement("button");
-// backToTopButton.innerText = "↑";
-// backToTopButton.style.position = "fixed";
-// backToTopButton.style.bottom = "20px";
-// backToTopButton.style.right = "20px";
-// backToTopButton.style.display = "none";
-// backToTopButton.style.backgroundColor = "#1e90ff";
-// backToTopButton.style.color = "#fff";
-// backToTopButton.style.border = "none";
-// backToTopButton.style.padding = "10px 15px";
-// backToTopButton.style.cursor = "pointer";
-// backToTopButton.style.borderRadius = "5px";
-// document.body.appendChild(backToTopButton);
+// Back to top button functionality
+const backToTopButton = document.createElement("button");
+backToTopButton.innerText = "↑";
+backToTopButton.style.position = "fixed";
+backToTopButton.style.bottom = "20px";
+backToTopButton.style.right = "20px";
+backToTopButton.style.display = "none";
+backToTopButton.style.backgroundColor = "#1e90ff";
+backToTopButton.style.color = "#fff";
+backToTopButton.style.border = "none";
+backToTopButton.style.padding = "10px 15px";
+backToTopButton.style.cursor = "pointer";
+backToTopButton.style.borderRadius = "5px";
+document.body.appendChild(backToTopButton);
 
-// window.addEventListener("scroll", () => {
-//   if (window.scrollY > 500) {
-//     backToTopButton.style.display = "block";
-//   } else {
-//     backToTopButton.style.display = "none";
-//   }
-// });
+window.addEventListener("scroll", () => {
+  backToTopButton.style.display = window.scrollY > 500 ? "block" : "none";
+});
 
-// backToTopButton.addEventListener("click", () => {
-//   window.scrollTo({
-//     top: 0,
-//     behavior: "smooth",
-//   });
-// });
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
 
 // SLIDER FUNCTIONALITY
 const slides = document.querySelectorAll(".slide");
@@ -98,6 +95,18 @@ const dotContainer = document.querySelector(".dots");
 
 let curSlide = 0;
 const maxSlide = slides.length;
+
+// Add touch support for mobile devices
+const touchStartX = 0;
+const touchEndX = 0;
+
+document.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].clientX);
+document.addEventListener('touchend', e => {
+  touchEndX = e.changedTouches[0].clientX;
+  if (touchEndX < touchStartX) nextSlide();
+  if (touchEndX > touchStartX) prevSlide();
+});
+
 
 // Functions
 const createDots = function () {
