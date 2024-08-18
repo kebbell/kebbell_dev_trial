@@ -66,7 +66,9 @@ body{
 		}
 }
 .img-rabbit{
-	width: 100%;
+	margin-top: 20px;
+	width: 95%;
+	height: 80vh;
 }
 .btn-rabbit{
 	background-color: #fff;
@@ -228,6 +230,140 @@ footer{
 	width: 40%;
 	bottom: -7px;
 }
+
+/* SKILLS */
+
+#skills {
+  text-align: center;
+}
+
+#skills {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px 30px 0 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  font-size: 3rem;
+  color: #fefefe;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.skills-list {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.skill {
+  position: relative;
+  margin: 0 15px;
+  perspective: 1000px;
+}
+
+.skill-btn {
+  background: linear-gradient(45deg, #1e1e1e, #424242);
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 40px 16px;
+  margin-top: 50px;
+  margin-right: 25px;
+  font-size: 20px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.skill-btn2 {
+  background: linear-gradient(45deg, #1e1e1e, #424242);
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 40px 16px;
+  margin-left: 25px;
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.skill-btn:hover, .skill-btn2:hover {
+  transform: translateY(-3px) scale(1.15) rotate(2deg);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.skill-image {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%) rotateY(360deg);
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.skill-image.show {
+  opacity: 1;
+  transform: translateX(-50%) rotateY(0deg);
+}
+
+/* MUSIC */
+#music {
+  text-align: center; /* Center text within the music section */
+	
+}
+
+#musicContainer {
+	margin-top: 20px;
+	padding: 20px;
+
+}
+
+.musicintro {
+  margin-bottom: 1.75rem;
+}
+
+.iframe-description {
+  font-size: 166px;
+  color: #cccccc;
+  margin-top: 0.5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.iframe-description a {
+  color: #cccccc;
+  text-decoration: none;
+}
+
+.iframe-description a:hover {
+  text-decoration: underline;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.skill-btn:hover + .skill-image {
+  animation: bounce 1s infinite;
+}
+
 
 #watermark .marker{
 	position: absolute;
