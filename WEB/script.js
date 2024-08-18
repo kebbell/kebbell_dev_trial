@@ -183,18 +183,18 @@ dotContainer.addEventListener("click", function (e) {
 
 //////////////////////////////////
 // SKILLS
-document.addEventListener("DOMContentLoaded", function() {
-  const skills = document.querySelectorAll(".skill");
+// document.addEventListener("DOMContentLoaded", function() {
+//   const skills = document.querySelectorAll(".skill");
 
-  skills.forEach(skill => {
-    const button = skill.querySelector(".skill-btn");
-    const image = skill.querySelector(".skill-image");
+//   skills.forEach(skill => {
+//     const button = skill.querySelector(".skill-btn");
+//     const image = skill.querySelector(".skill-image");
 
-      setTimeout(function() {
-        image.classList.remove("show");
-      }, 3000); // Hide the image after 3 seconds
-    });
-  });
+//       setTimeout(function() {
+//         image.classList.remove("show");
+//       }, 3000); // Hide the image after 3 seconds
+//     });
+//   });
 
 
 
@@ -309,6 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
             overlay.classList.add("active");
         }, 1750);
     }
+
 
     // SNAKE GAME
     const canvas = document.getElementById('game');
