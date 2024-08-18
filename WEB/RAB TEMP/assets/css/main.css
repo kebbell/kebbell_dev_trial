@@ -364,7 +364,6 @@ h1 {
   animation: bounce 1s infinite;
 }
 
-
 #watermark .marker{
 	position: absolute;
 	font-size: 60px;
@@ -375,11 +374,9 @@ h1 {
 	top: -5px;
 }
 
-
 #watermark{
 	position: relative;
 }
-
 
 .item{
 	
