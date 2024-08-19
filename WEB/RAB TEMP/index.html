@@ -8,8 +8,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script defer src="script.js"></script>
-    <script defer src="path/to/your/javascript/file.js"></script>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script defer src="assets/js/bootstrap.min.js"></script>
+    <script defer src="assets/js/script.js"></script>
 
     <link rel="stylesheet" type="text/css" href="" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -141,7 +142,6 @@
                   >
                     SET OF THE WEEK
                   </button>
-                  <img src="html-logo.png" class="skill-image" alt="HTML Logo" />
                 </div>
                 <div class="skill" id="cssSkill">
                   <button
@@ -150,7 +150,6 @@
                   >
                     TRACK OF THE WEEK
                   </button>
-                  <img src="css-logo.png" class="skill-image" alt="CSS Logo" />
                 </div>
               </div>
               <p class="info">
@@ -227,7 +226,7 @@
               <div id="watermark">
                 <h2 class="page-title" text-center>Games</h2>
                 <div class="marker">G</div>
-              </div>
+              </div> 
 
               <div class="gamesList">
                 <!-- Tic Tac Toe Section -->
@@ -279,43 +278,45 @@
       <div id="totw_scroll" class="pages">
         <!-- TOTW starts here -->
         <div class="container main">
-          <div class="row">
-            <div class="col-md-6" id="totw_left">
-              <div id="owl-demo" class="owl-carousel owl-theme">
-                <div class="item">
-                  <img
-                    class="img-responsive img-rabbit"
-                    src="assets/images/90s arcade.jpeg">
+            <div class="row">
+                <div class="col-md-6" id="totw_left">
+                    <!-- Owl Carousel -->
+                    <div id="owl-demo" class="owl-carousel owl-theme">
+                        <div class="item">
+                            <img
+                                class="img-responsive img-rabbit"
+                                src="assets/images/90s arcade.jpeg"
+                                alt="90s Arcade"
+                            >
+                        </div>
+                    </div>
                 </div>
-              </div>
+    
+                <div class="col-md-6" id="totw_right">
+                    <a href="#index" class="btn btn-rabbit back">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i> Back to Home
+                    </a>
+                    <div id="watermark">
+                        <h2 class="page-title text-center">Team of the Week</h2>
+                        <div class="marker">T</div>
+                    </div>
+    
+                    <iframe
+                        id="sofa-totw-embed-18-61961-14118"
+                        width="700"
+                        height="600"
+                        style="display: block; margin: 90px auto;"
+                        src="https://widgets.sofascore.com/embed/unique-tournament/18/season/61961/round/14118/teamOfTheWeek?showCompetitionLogo=true&widgetTheme=light&widgetTitle=Championship"
+                        frameborder="0"
+                        scrolling="no"
+                        title="Team of the Week"
+                    ></iframe>
+                </div>
             </div>
-  
-            <div class="col-md-6" id="totw_right">
-              <a href="#index" class="btn btn-rabbit back">
-                <i class="fa fa-angle-left" aria-hidden="true"></i> Back to Home
-              </a>
-              <div id="watermark">
-                <h2 class="page-title" text-center>Team of the Week</h2>
-                <div class="marker">T</div>
-              </div>
-
-              <iframe
-              id="sofa-totw-embed-18-61961-14118"
-              width="700"
-              height="600"
-              style="display: block; margin: 90px auto"
-              src="https://widgets.sofascore.com/embed/unique-tournament/18/season/61961/round/14118/teamOfTheWeek?showCompetitionLogo=true&widgetTheme=light&widgetTitle=Championship"
-              frameborder="0"
-              scrolling="no"
-            ></iframe>
-
-
-            </div>
-
-          </div>
         </div>
-      </div>
-      <!-- Work ends here  -->
+    </div>
+    <!-- TOTW ends here -->
+    
 
 
     <div id="contact_scroll" class="pages">

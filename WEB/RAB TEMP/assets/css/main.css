@@ -215,8 +215,7 @@ footer{
 	color: #3b3b3b;
 	line-height: 28px;
 	font-family: "Crimson";
-	margin-top: 15px;
-	margin-bottom: 20px;
+	margin-top: 25px;
 	padding-right: 40px;
 
 	}
@@ -253,14 +252,20 @@ h1 {
 
 .skills-list {
   display: flex;
+	flex-direction: column;
+	align-items: center;
   justify-content: center;
   margin-top: 30px;
+	width: 100%;
 }
 
 .skill {
-  position: relative;
-  margin: 0 15px;
-  perspective: 1000px;
+	width: 100%;
+	margin-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .skill-btn {
@@ -268,8 +273,8 @@ h1 {
   border: none;
   color: rgb(255, 255, 255);
   padding: 40px 16px;
-  margin-top: 50px;
-  margin-right: 25px;
+	width: 70%;
+  margin-top: 20px;
   font-size: 20px;
   font-weight: bolder;
   text-transform: uppercase;
@@ -284,7 +289,9 @@ h1 {
   border: none;
   color: rgb(255, 255, 255);
   padding: 40px 16px;
-  margin-left: 25px;
+	width: 100%;
+	width: 70%;
+
   margin-top: 50px;
   font-size: 20px;
   font-weight: bolder;

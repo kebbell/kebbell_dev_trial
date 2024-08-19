@@ -1,93 +1,91 @@
 $(document).ready(function () {
-  $("#about_scroll").fadeOut();
-  $("#picks_scroll").fadeOut();
-  $("#music_scroll").fadeOut();
-  $("#games_scroll").fadeOut();
-  $("#totw_scroll").fadeOut();
-  $("#contact_scroll").fadeOut();
-
-  $("#about").click(function () {
-    $("#index").fadeOut();
-    $("#about_scroll").fadeIn();
-    $("#about_left").addClass("animated slideInLeft");
-    $("#about_right").addClass("animated slideInRight");
+    $("#about_scroll, #picks_scroll, #music_scroll, #games_scroll, #totw_scroll, #contact_scroll").fadeOut();
+  
+    $("#about").click(function () {
+      $("#index").fadeOut();
+      $("#about_scroll").fadeIn();
+      $("#about_left").addClass("animated slideInLeft");
+      $("#about_right").addClass("animated slideInRight");
+    });
+  
+    $("#picks").click(function () {
+      $("#index").fadeOut();
+      $("#picks_scroll").fadeIn();
+      $("#picks_left").addClass("animated slideInLeft");
+      $("#picks_right").addClass("animated slideInRight");
+    });
+  
+    $("#music").click(function () {
+      $("#index").fadeOut();
+      $("#music_scroll").fadeIn();
+      $("#music_left").addClass("animated slideInLeft");
+      $("#music_right").addClass("animated slideInRight");
+    });
+  
+    $("#games").click(function () {
+      $("#index").fadeOut();
+      $("#games_scroll").fadeIn();
+      $("#games_left").addClass("animated slideInLeft");
+      $("#games_right").addClass("animated slideInRight");
+    });
+  
+    $("#totw").click(function () {
+      $("#index").fadeOut();
+      $("#totw_scroll").fadeIn();
+      $("#totw_left").addClass("animated slideInLeft");
+      $("#totw_right").addClass("animated slideInRight");
+    });
+  
+    $("#contact").click(function () {
+      $("#index").fadeOut();
+      $("#contact_scroll").fadeIn();
+      $("#contact_left").addClass("animated slideInLeft");
+      $("#contact_right").addClass("animated slideInRight");
+    });
+  
+    $(".back").click(function () {
+      $(".pages").fadeOut();
+      $("#index").fadeIn();
+      $("#index_left").addClass("animated slideInLeft");
+      $("#index_right").addClass("animated slideInRight");
+    });
   });
-
-  $("#picks").click(function () {
-    $("#index").fadeOut();
-    $("#picks_scroll").fadeIn();
-    $("#picks_left").addClass("animated slideInLeft");
-    $("#picks_right").addClass("animated slideInRight");
-  });
-
-  $("#music").click(function () {
-    $("#index").fadeOut();
-    $("#music_scroll").fadeIn();
-    $("#music_left").addClass("animated slideInLeft");
-    $("#music_right").addClass("animated slideInRight");
-  });
-  $("#games").click(function () {
-    $("#index").fadeOut();
-    $("#games_scroll").fadeIn();
-    $("#games_left").addClass("animated slideInLeft");
-    $("#games_right").addClass("animated slideInRight");
-  });
-
-  $("#totw").click(function () {
-    $("#index").fadeOut();
-    $("#totw_scroll").fadeIn();
-    $("#totw_left").addClass("animated slideInLeft");
-    $("#totw_right").addClass("animated slideInRight");
-  });
-
-  $("#contact").click(function () {
-    $("#index").fadeOut();
-    $("#contact_scroll").fadeIn();
-    $("#contact_left").addClass("animated slideInLeft");
-    $("#contact_right").addClass("animated slideInRight");
-  });
-
-  $(".back").click(function () {
-    $(".pages").fadeOut();
-    $("#index").fadeIn();
-    $("#index_left").addClass("animated slideInLeft");
-    $("#index_right").addClass("animated slideInRight");
-  });
-});
-
-window.addEventListener(
-  "keydown",
-  function (e) {
-    if (
-      ["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(
-        e.code
-      ) > -1
-    ) {
+  
+  window.addEventListener("keydown", function (e) {
+    if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
       e.preventDefault();
     }
-  },
-  false
-);
+  }, false);
+  
+  var img = new Image();
+  img.crossOrigin = 'Anonymous'; // Handle CORS issues if supported by the server
+  img.src = 'assets/images/IMG_9248 copy.jpg';
+  
+  img.onload = function() {
+      var canvas = document.createElement('canvas');
+      var ctx = canvas.getContext('2d');
+      
+      console.log('Image loaded with width:', img.width, 'and height:', img.height);
+      
+      canvas.width = img.width;
+      canvas.height = img.height;
+      
+      ctx.drawImage(img, 0, 0);
+      
+      try {
+          var imageData = ctx.getImageData(0, 0, img.width, img.height);
+          console.log('Image data successfully retrieved:', imageData);
+          // Process imageData here
+      } catch (error) {
+          console.error("Error accessing image data: ", error);
+      }
+  };
+  
+  img.onerror = function() {
+      console.error("Failed to load image");
+  };
 
-let img = new Image();
-img.crossOrigin = "anonymous"; // Ensure the image can be accessed across domains
-img.src = "https://example.com/image.jpg";
-
-img.onload = function() {
-    let canvas = document.createElement('canvas');
-    let ctx = canvas.getContext('2d');
-    canvas.width = img.width;
-    canvas.height = img.height;
-    ctx.drawImage(img, 0, 0);
-
-    try {
-        let imageData = ctx.getImageData(0, 0, img.width, img.height);
-        // Work with the image data
-    } catch (e) {
-        console.error("Error accessing image data: ", e);
-    }
-};
-
+  
 
 /////////////////////////////////////
 // TIC TAC TOE GAME
@@ -202,8 +200,8 @@ img.onload = function() {
 //     }
 
 // SNAKE GAME
-const canvas = document.getElementById("game");
-const context = canvas.getContext("2d");
+const canvas3 = document.getElementById("game");
+const context = canvas3.getContext("2d");
 const grid = 16;
 let count = 0;
 
@@ -232,20 +230,20 @@ function loop() {
   }
 
   count = 0;
-  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.clearRect(0, 0, canvas3.width, canvas3.height);
 
   snake.x += snake.dx;
   snake.y += snake.dy;
 
   if (snake.x < 0) {
-    snake.x = canvas.width - grid;
-  } else if (snake.x >= canvas.width) {
+    snake.x = canvas3.width - grid;
+  } else if (snake.x >= canvas3.width) {
     snake.x = 0;
   }
 
   if (snake.y < 0) {
-    snake.y = canvas.height - grid;
-  } else if (snake.y >= canvas.height) {
+    snake.y = canvas3.height - grid;
+  } else if (snake.y >= canvas3.height) {
     snake.y = 0;
   }
 
