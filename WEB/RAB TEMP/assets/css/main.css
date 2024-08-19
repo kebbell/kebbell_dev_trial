@@ -98,6 +98,10 @@ p{
 	font-family: 'Josefin Sans';
 }
 
+.pages {
+	display: none; /* Initially hide all pages */
+}
+
 /*Home Style*/
 .logo{
 	padding-top: 100px;

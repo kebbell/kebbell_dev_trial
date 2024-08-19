@@ -85,6 +85,17 @@ $(document).ready(function () {
       console.error("Failed to load image");
   };
 
+
+  $(document).ready(function(){
+    $("#owl-demo").owlCarousel({
+        items: 1, // Adjust based on your requirements
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000, // Adjust based on your requirements
+        autoplayHoverPause: true
+    });
+});
+
   
 
 /////////////////////////////////////
