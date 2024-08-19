@@ -29,11 +29,13 @@ $(document).ready(function () {
       $("#games_right").addClass("animated slideInRight");
     });
   
+    $("#totw_scroll").fadeOut(); // Ensure that #totw_scroll is hidden initially
+
     $("#totw").click(function () {
-      $("#index").fadeOut();
-      $("#totw_scroll").fadeIn();
-      $("#totw_left").addClass("animated slideInLeft");
-      $("#totw_right").addClass("animated slideInRight");
+        $("#index").fadeOut();
+        $("#totw_scroll").fadeIn();
+        $("#totw_left").addClass("animated slideInLeft");
+        $("#totw_right").addClass("animated slideInRight");
     });
   
     $("#contact").click(function () {
