@@ -378,6 +378,11 @@ h1 {
 	position: relative;
 }
 
+.snake-game{
+	background-color: black;
+
+}
+
 .item{
 	
 	background-color: #313131;
