@@ -273,9 +273,15 @@ h1 {
 }
 
 .skill-btn {
-  background: linear-gradient(45deg, #1e1e1e, #424242);
-  border: none;
-  color: rgb(255, 255, 255);
+	background-color: #fff;
+	color: #111;
+	font-style: italic;
+	border: 1px solid #111;
+	border-radius: 0px !important;
+	transition: all 0.4s ease-in-out;
+	margin-bottom: 20px;
+	font-family: "Crimson";
+	font-size: 13px;
   padding: 40px 16px;
 	width: 70%;
   margin-top: 20px;
@@ -289,9 +295,15 @@ h1 {
 }
 
 .skill-btn2 {
-  background: linear-gradient(45deg, #1e1e1e, #424242);
-  border: none;
-  color: rgb(255, 255, 255);
+	background-color: #fff;
+	color: #111;
+	font-style: italic;
+	border: 1px solid #111;
+	border-radius: 0px !important;
+	transition: all 0.4s ease-in-out;
+	margin-bottom: 20px;
+	font-family: "Crimson";
+	font-size: 13px;
   padding: 40px 16px;
 	width: 100%;
 	width: 70%;
@@ -309,6 +321,9 @@ h1 {
 .skill-btn:hover, .skill-btn2:hover {
   transform: translateY(-3px) scale(1.15) rotate(2deg);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+	color: #fff;
+	background-color: #bb9e7d;
+	border-color: #bb9e7d;
 }
 
 .skill-image {
@@ -391,7 +406,12 @@ h1 {
 
 .snake-game{
 	background-color: black;
+margin-top: 1.25rem;
+height: 545px;
+}
 
+img {
+	opacity: 0.8;
 }
 
 .item{
