@@ -356,6 +356,4 @@ document.getElementById("down").addEventListener("click", () => {
     snake.dx = 0;
   }
 });
-
-
 requestAnimationFrame(loop);

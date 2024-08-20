@@ -61,21 +61,13 @@ body {
     padding-left: 90px;
   }
 }
-<<<<<<< HEAD
-.img-rabbit {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-top: 20px;
-  /*margin-left: 0px;*/
-=======
+
 .img-rabbit{
 	display: block;
 	width: 100%;
 	height: auto;
 	margin-top: 20px;
 	/*margin-left: 0px;*/
->>>>>>> 70343af (updates)
 }
 .btn-rabbit {
   background-color: #fff;
@@ -416,21 +408,13 @@ img {
   color: #f9f9f9;
 }
 
-<<<<<<< HEAD
-#owl-demo .item img {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-top: 20px;
-  /*margin-left: 0px;*/
-=======
+
 #owl-demo .item img{
     display: block;
     width: 100%;
     height: auto;
 		margin-top: 20px;
     /*margin-left: 0px;*/
->>>>>>> 70343af (updates)
 }
 
 .owl-theme .owl-controls {
