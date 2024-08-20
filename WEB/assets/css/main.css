@@ -66,12 +66,18 @@ body{
 		}
 }
 .img-rabbit{
+<<<<<<< HEAD
 	.img-rabbit{
 		display: block;
 		width: 100%;
 		height: auto;
 		/*margin-left: 0px;*/
 	}
+=======
+	margin-top: 20px;
+	width: 95%;
+	height: 80vh;
+>>>>>>> 8f870485c909e66fd653bc70379ff77a4c2c9652
 }
 .btn-rabbit{
 	background-color: #fff;
