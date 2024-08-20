@@ -357,8 +357,5 @@ document.getElementById("down").addEventListener("click", () => {
   }
 });
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 70343af (updates)
 requestAnimationFrame(loop);
