@@ -310,4 +310,53 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+document.addEventListener("touchstart", (e) => {
+  const touch = e.touches[0];
+  const x = touch.clientX;
+  const y = touch.clientY;
+
+  if (x < canvas3.width / 2 && snake.dx === 0) {
+    snake.dx = -grid;
+    snake.dy = 0;
+  } else if (x > canvas3.width / 2 && snake.dx === 0) {
+    snake.dx = grid;
+    snake.dy = 0;
+  } else if (y < canvas3.height / 2 && snake.dy === 0) {
+    snake.dy = -grid;
+    snake.dx = 0;
+  } else if (y > canvas3.height / 2 && snake.dy === 0) {
+    snake.dy = grid;
+    snake.dx = 0;
+  }
+});
+
+document.getElementById("left").addEventListener("click", () => {
+  if (snake.dx === 0) {
+    snake.dx = -grid;
+    snake.dy = 0;
+  }
+});
+
+document.getElementById("right").addEventListener("click", () => {
+  if (snake.dx === 0) {
+    snake.dx = grid;
+    snake.dy = 0;
+  }
+});
+
+document.getElementById("up").addEventListener("click", () => {
+  if (snake.dy === 0) {
+    snake.dy = -grid;
+    snake.dx = 0;
+  }
+});
+
+document.getElementById("down").addEventListener("click", () => {
+  if (snake.dy === 0) {
+    snake.dy = grid;
+    snake.dx = 0;
+  }
+});
+
+
 requestAnimationFrame(loop);
