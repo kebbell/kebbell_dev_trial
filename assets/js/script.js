@@ -1,104 +1,107 @@
 $(document).ready(function () {
-    $("#about_scroll, #picks_scroll, #music_scroll, #games_scroll, #totw_scroll, #contact_scroll").fadeOut();
-  
-    $("#about").click(function () {
-      $("#index").fadeOut();
-      $("#about_scroll").fadeIn();
-      $("#about_left").addClass("animated slideInLeft");
-      $("#about_right").addClass("animated slideInRight");
-    });
-  
-    $("#picks").click(function () {
-      $("#index").fadeOut();
-      $("#picks_scroll").fadeIn();
-      $("#picks_left").addClass("animated slideInLeft");
-      $("#picks_right").addClass("animated slideInRight");
-    });
-  
-    $("#music").click(function () {
-      $("#index").fadeOut();
-      $("#music_scroll").fadeIn();
-      $("#music_left").addClass("animated slideInLeft");
-      $("#music_right").addClass("animated slideInRight");
-    });
-  
-    $("#games").click(function () {
-      $("#index").fadeOut();
-      $("#games_scroll").fadeIn();
-      $("#games_left").addClass("animated slideInLeft");
-      $("#games_right").addClass("animated slideInRight");
-    });
-  
-    $("#totw_scroll").fadeOut(); // Ensure that #totw_scroll is hidden initially
+  $(
+    "#about_scroll, #picks_scroll, #music_scroll, #games_scroll, #totw_scroll, #contact_scroll"
+  ).fadeOut();
 
-    $("#totw").click(function () {
-        $("#index").fadeOut();
-        $("#totw_scroll").fadeIn();
-        $("#totw_left").addClass("animated slideInLeft");
-        $("#totw_right").addClass("animated slideInRight");
-    });
-  
-    $("#contact").click(function () {
-      $("#index").fadeOut();
-      $("#contact_scroll").fadeIn();
-      $("#contact_left").addClass("animated slideInLeft");
-      $("#contact_right").addClass("animated slideInRight");
-    });
-  
-    $(".back").click(function () {
-      $(".pages").fadeOut();
-      $("#index").fadeIn();
-      $("#index_left").addClass("animated slideInLeft");
-      $("#index_right").addClass("animated slideInRight");
-    });
+  $("#about").click(function () {
+    $("#index").fadeOut();
+    $("#about_scroll").fadeIn();
+    $("#about_left").addClass("animated slideInLeft");
+    $("#about_right").addClass("animated slideInRight");
   });
-  
-  window.addEventListener("keydown", function (e) {
-    if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
-      e.preventDefault();
-    }
-  }, false);
-  
-  var img = new Image();
-  img.crossOrigin = 'Anonymous'; // Handle CORS issues if supported by the server
-  img.src = 'assets/images/IMG_9248 copy.jpg';
-  
-  img.onload = function() {
-      var canvas = document.createElement('canvas');
-      var ctx = canvas.getContext('2d');
-      
-      console.log('Image loaded with width:', img.width, 'and height:', img.height);
-      
-      canvas.width = img.width;
-      canvas.height = img.height;
-      
-      ctx.drawImage(img, 0, 0);
-      
-      try {
-          var imageData = ctx.getImageData(0, 0, img.width, img.height);
-          console.log('Image data successfully retrieved:', imageData);
-          // Process imageData here
-      } catch (error) {
-          console.error("Error accessing image data: ", error);
-      }
-  };
-  
-  img.onerror = function() {
-      console.error("Failed to load image");
-  };
 
+  $("#picks").click(function () {
+    $("#index").fadeOut();
+    $("#picks_scroll").fadeIn();
+    $("#picks_left").addClass("animated slideInLeft");
+    $("#picks_right").addClass("animated slideInRight");
+  });
 
-  $(document).ready(function(){
-    $("#owl-demo").owlCarousel({
-        items: 1, // Adjust based on your requirements
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 3000, // Adjust based on your requirements
-        autoplayHoverPause: true
-    });
+  $("#music").click(function () {
+    $("#index").fadeOut();
+    $("#music_scroll").fadeIn();
+    $("#music_left").addClass("animated slideInLeft");
+    $("#music_right").addClass("animated slideInRight");
+  });
+
+  $("#games").click(function () {
+    $("#index").fadeOut();
+    $("#games_scroll").fadeIn();
+    $("#games_left").addClass("animated slideInLeft");
+    $("#games_right").addClass("animated slideInRight");
+  });
+
+  $("#totw_scroll").fadeOut(); // Ensure that #totw_scroll is hidden initially
+
+  $("#totw").click(function () {
+    $("#index").fadeOut();
+    $("#totw_scroll").fadeIn();
+    $("#totw_left").addClass("animated slideInLeft");
+    $("#totw_right").addClass("animated slideInRight");
+  });
+
+  $("#contact").click(function () {
+    $("#index").fadeOut();
+    $("#contact_scroll").fadeIn();
+    $("#contact_left").addClass("animated slideInLeft");
+    $("#contact_right").addClass("animated slideInRight");
+  });
+
+  $(".back").click(function () {
+    $(".pages").fadeOut();
+    $("#index").fadeIn();
+    $("#index_left").addClass("animated slideInLeft");
+    $("#index_right").addClass("animated slideInRight");
+  });
 });
 
-  
+window.addEventListener(
+  "keydown",
+  function (e) {
+    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
+      e.preventDefault();
+    }
+  },
+  false
+);
+
+var img = new Image();
+img.crossOrigin = "Anonymous"; // Handle CORS issues if supported by the server
+img.src = "assets/images/IMG_9248 copy.jpg";
+
+img.onload = function () {
+  var canvas = document.createElement("canvas");
+  var ctx = canvas.getContext("2d");
+
+  console.log("Image loaded with width:", img.width, "and height:", img.height);
+
+  canvas.width = img.width;
+  canvas.height = img.height;
+
+  ctx.drawImage(img, 0, 0);
+
+  try {
+    var imageData = ctx.getImageData(0, 0, img.width, img.height);
+    console.log("Image data successfully retrieved:", imageData);
+    // Process imageData here
+  } catch (error) {
+    console.error("Error accessing image data: ", error);
+  }
+};
+
+img.onerror = function () {
+  console.error("Failed to load image");
+};
+
+$(document).ready(function () {
+  $("#owl-demo").owlCarousel({
+    items: 1, // Adjust based on your requirements
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 3000, // Adjust based on your requirements
+    autoplayHoverPause: true,
+  });
+});
 
 /////////////////////////////////////
 // TIC TAC TOE GAME
