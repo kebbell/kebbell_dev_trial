@@ -66,9 +66,10 @@ body{
 		}
 }
 .img-rabbit{
-	margin-top: 20px;
-	width: 95%;
-	height: 80vh;
+	display: block;
+	width: 100%;
+	height: auto;
+	/*margin-left: 0px;*/
 }
 .btn-rabbit{
 	background-color: #fff;
