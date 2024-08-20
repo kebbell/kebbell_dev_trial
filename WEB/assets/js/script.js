@@ -211,7 +211,6 @@ $(document).ready(function () {
 //             overlay.classList.add("active");
 //         }, 1750);
 //     }
-
 // SNAKE GAME
 const canvas3 = document.getElementById("game");
 const context = canvas3.getContext("2d");
@@ -358,5 +357,8 @@ document.getElementById("down").addEventListener("click", () => {
   }
 });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 70343af (updates)
 requestAnimationFrame(loop);
