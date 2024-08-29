@@ -332,31 +332,4 @@ document.addEventListener("touchstart", (e) => {
   }
 });
 
-document.getElementById("left").addEventListener("click", () => {
-  if (snake.dx === 0) {
-    snake.dx = -grid;
-    snake.dy = 0;
-  }
-});
-
-document.getElementById("right").addEventListener("click", () => {
-  if (snake.dx === 0) {
-    snake.dx = grid;
-    snake.dy = 0;
-  }
-});
-
-document.getElementById("up").addEventListener("click", () => {
-  if (snake.dy === 0) {
-    snake.dy = -grid;
-    snake.dx = 0;
-  }
-});
-
-document.getElementById("down").addEventListener("click", () => {
-  if (snake.dy === 0) {
-    snake.dy = grid;
-    snake.dx = 0;
-  }
-});
 requestAnimationFrame(loop);
