@@ -17,6 +17,17 @@ body {
   line-height: 29px;
 }
 
+.info {
+  font-family: "Crimson";
+  height: 400px;
+  line-height: 28px;
+  font-size: 16px;
+  padding-top: 15px;
+  padding-right: 50px;
+  padding-left: 50px;
+  overflow-y: scroll;
+}
+
 .social a i {
   height: 40px;
   width: 40px;
@@ -141,7 +152,7 @@ footer {
 }
 
 .btn {
-  padding: 20px 63px;
+  padding: 20px 60px;
   height: 65px;
   font-size: 18px;
 }

@@ -97,21 +97,15 @@
               <div class="marker">A</div>
             </div>
             <p class="subtitle">
-              Hi, I am Sam Kebbell. A freelance web designer, front-end
-              developer and digital planner based in UK.
+              Hello, I’m Sam Kebbell, a dedicated web designer, front-end developer, and digital planner based in the UK. 
             </p>
             <p class="info">
-              "I'm a dedicated sports enthusiast, spending my weekends immersed
-              in the excitement of football, cricket, and rugby, with a lifelong
-              passion for Norwich City FC, where I cheer for the Canaries
-              through every match. My love for sports is matched by my deep
-              appreciation for music, which serves as my universal language. I
-              enjoy all genres, from jazz and classical to hip-hop and
-              electronic, and I'm an avid crate digger, constantly on the hunt
-              for rare vinyl records and hidden gems. Additionally, Japan's rich
-              culture and cuisine captivate me, with the country's unique blend
-              of tradition and modernity—from the vibrant streets of Tokyo to
-              the serene temples of Kyoto—holding a special place in my heart."
+              I specialize in building visually captivating and highly interactive websites using my advanced knowledge of HTML, CSS, and JavaScript. With a deep expertise in Visual Studio Code, Git, and GitHub, I ensure efficient and streamlined workflows for every project. I’m also skilled in React and Ruby, with intermediate proficiency, and have experience using Adobe Creative Suite and Microsoft Office for a range of design and project management tasks. Additionally, I have a foundational understanding of Bootstrap, Figma, and SASS, allowing me to seamlessly adapt to different project needs and collaborate effectively across diverse teams.
+              <br>
+              <br>
+              Beyond the screen, I’m a passionate sports enthusiast, dedicating my weekends to the excitement of football, cricket, and rugby, and cheering on Norwich City FC as a lifelong fan of the Canaries. My love for sports is complemented by my deep appreciation for music, which I see as a universal language. Whether it’s jazz, classical, hip-hop, or electronic, I’m an avid crate digger, always searching for rare vinyl records and hidden gems. I’m also captivated by Japan's unique blend of tradition and modernity, from the vibrant streets of Tokyo to the peaceful temples of Kyoto, finding endless inspiration in its culture and cuisine.
+              
+              Let’s collaborate to transform your ideas into stunning digital experiences with innovative design and robust development. Together, we can create something truly exceptional.
             </p>
           </div>
         </div>
@@ -128,7 +122,7 @@
               <div class="item">
                 <img
                   class="img-responsive img-rabbit"
-                  src="assets/images/2.jpeg"
+                  src="assets/images/The earliest home computers _ CNN.jpeg"
                 />
               </div>
             </div>
@@ -357,7 +351,7 @@
               src="assets/images/IET Library.jpeg"
             />
           </div>
-
+    
           <div class="col-md-6 right" id="contact_right">
             <a href="#index" class="btn btn-rabbit back">
               <i class="fa fa-angle-left" aria-hidden="true"></i> Back to Home
@@ -370,41 +364,53 @@
               I'm currently based in the UK. Drop me a line.
             </p>
             <!-- form -->
-            <form class="form_edit">
+            <form id="contact-form" class="form_edit">
               <div class="form-group">
                 <input
-                  type="name"
+                  type="text"
                   class="form-control"
-                  id="exampleInputName"
+                  id="user_name"
                   placeholder="Name"
+                  required
                 />
               </div>
-
+            
               <div class="form-group">
                 <input
                   type="email"
                   class="form-control"
-                  id="exampleInputEmail1"
+                  id="user_email"
                   placeholder="Email"
+                  required
                 />
               </div>
-
+            
               <div class="form-group">
                 <textarea
                   class="form-control"
+                  id="user_message"
                   rows="5"
                   placeholder="Message"
+                  required
                 ></textarea>
               </div>
               <button type="submit" class="btn btn-rabbit submit">
                 Send Message
               </button>
             </form>
+            
           </div>
         </div>
       </div>
     </div>
     <!-- Contact ends here -->
+
+    
+    <!-- Include EmailJS SDK in your HTML file, preferably before the closing </body> tag -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <!-- Include your custom JavaScript file after EmailJS SDK -->
+    <script type="text/javascript" src="contact-form.js"></script>
 
     <footer class="footer">
       <p>&copy; By Kebbell, 2024. All rights reserved.</p>
