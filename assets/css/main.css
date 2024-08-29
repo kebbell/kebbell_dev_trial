@@ -141,7 +141,7 @@ footer {
 }
 
 .btn {
-  padding: 20px 80px;
+  padding: 20px 63px;
   height: 65px;
   font-size: 18px;
 }
@@ -172,9 +172,7 @@ footer {
   color: #bb9e7d;
 }
 
-.fa {
-  margin: 0 1000px;
-}
+/*Home Style*/
 
 ::selection {
   color: #fff;
@@ -259,7 +257,8 @@ h1 {
 
 .skill {
   width: 100%;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
