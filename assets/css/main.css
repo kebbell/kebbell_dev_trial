@@ -17,6 +17,45 @@ body {
   line-height: 29px;
 }
 
+
+/* Basic styling for the announcement bar */
+.announcement-bar {
+  width: 100%;
+  background-color: black; /* Black background */
+  overflow: hidden;
+  position: fixed; /* Fixed at the top of the screen */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* High z-index to ensure it is above other content */
+  padding: 10px 0;
+}
+
+/* Styling for the text within the bar */
+.announcement-text {
+  display: inline-block;
+  color: white; /* White text color */
+  font-size: 16px;
+  white-space: nowrap; /* Prevents text from breaking into multiple lines */
+  padding-left: 100%; /* Pushes text offscreen to the right initially */
+  animation: scrollText 10s linear infinite; /* Controls animation speed and loop */
+}
+
+/* Keyframes for text scrolling */
+@keyframes scrollText {
+  0% {
+      transform: translateX(100%); /* Start offscreen to the right */
+  }
+  100% {
+      transform: translateX(-100%); /* End offscreen to the left */
+  }
+}
+
+/* Ensures content sits below the announcement bar */
+.content-wrapper {
+  margin-top: 40px; /* Adds margin equal to the height of the announcement bar */
+  padding: 20px; /* Adds padding for aesthetic spacing */
+}
+
 .info {
   font-family: "Crimson";
   height: 400px;
