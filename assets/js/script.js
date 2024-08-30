@@ -333,6 +333,3 @@ document.addEventListener("touchstart", (e) => {
 });
 
 requestAnimationFrame(loop);
-
-
-
