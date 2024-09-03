@@ -37,7 +37,7 @@ body {
   font-size: 16px;
   white-space: nowrap; /* Prevents text from breaking into multiple lines */
   padding-left: 50%; /* Pushes text offscreen to the right initially */
-  animation: scrollText 30s linear infinite; /* Controls animation speed and loop */
+  animation: scrollText 50s linear infinite; /* Controls animation speed and loop */
 }
 
 /* Keyframes for text scrolling */
