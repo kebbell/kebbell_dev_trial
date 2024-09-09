@@ -24,12 +24,12 @@ $(document).ready(function () {
     $("#music_right").addClass("animated slideInRight");
   });
 
-  $("#radio").click(function () {
-    $("#index").fadeOut();
-    $("#radio_scroll").fadeIn();
-    $("#radio_left").addClass("animated slideInLeft");
-    $("#radio_right").addClass("animated slideInRight");
-  });
+  // $("#radio").click(function () {
+  //   $("#index").fadeOut();
+  //   $("#radio_scroll").fadeIn();
+  //   $("#radio_left").addClass("animated slideInLeft");
+  //   $("#radio_right").addClass("animated slideInRight");
+  // });
 
   $("#games").click(function () {
     $("#index").fadeOut();
@@ -115,6 +115,10 @@ $(document).ready(function () {
     window.location.href = 'https://kebbell.github.io/keb-radio'; // Change this to your desired URL
   });
 });
+
+$("#radio").click(function () {
+    window.location.href = "https://kebbell.github.io/keb-radio";
+  });
 
 
 
