@@ -1,8 +1,8 @@
 $(document).ready(function () {
-  $(
-    "#about_scroll, #picks_scroll, #music_scroll, #games_scroll, #totw_scroll, #contact_scroll"
-  ).fadeOut();
+  // Hide all sections initially
+  $("#about_scroll, #picks_scroll, #music_scroll, #games_scroll, #totw_scroll, #contact_scroll").fadeOut();
 
+  // Define click events for various sections
   $("#about").click(function () {
     $("#index").fadeOut();
     $("#about_scroll").fadeIn();
@@ -22,6 +22,13 @@ $(document).ready(function () {
     $("#music_scroll").fadeIn();
     $("#music_left").addClass("animated slideInLeft");
     $("#music_right").addClass("animated slideInRight");
+  });
+
+  $("#radio").click(function () {
+    $("#index").fadeOut();
+    $("#radio_scroll").fadeIn();
+    $("#radio_left").addClass("animated slideInLeft");
+    $("#radio_right").addClass("animated slideInRight");
   });
 
   $("#games").click(function () {
@@ -53,55 +60,63 @@ $(document).ready(function () {
     $("#index_left").addClass("animated slideInLeft");
     $("#index_right").addClass("animated slideInRight");
   });
-});
 
-window.addEventListener(
-  "keydown",
-  function (e) {
-    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
-      e.preventDefault();
+  // Prevent arrow key scrolling
+  window.addEventListener(
+    "keydown",
+    function (e) {
+      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
+        e.preventDefault();
+      }
+    },
+    false
+  );
+
+  // Image handling
+  var img = new Image();
+  img.crossOrigin = "Anonymous"; // Handle CORS issues if supported by the server
+  img.src = "assets/images/IMG_9248 copy.jpg";
+
+  img.onload = function () {
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext("2d");
+
+    console.log("Image loaded with width:", img.width, "and height:", img.height);
+
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    ctx.drawImage(img, 0, 0);
+
+    try {
+      var imageData = ctx.getImageData(0, 0, img.width, img.height);
+      console.log("Image data successfully retrieved:", imageData);
+      // Process imageData here
+    } catch (error) {
+      console.error("Error accessing image data: ", error);
     }
-  },
-  false
-);
+  };
 
-var img = new Image();
-img.crossOrigin = "Anonymous"; // Handle CORS issues if supported by the server
-img.src = "assets/images/IMG_9248 copy.jpg";
+  img.onerror = function () {
+    console.error("Failed to load image");
+  };
 
-img.onload = function () {
-  var canvas = document.createElement("canvas");
-  var ctx = canvas.getContext("2d");
-
-  console.log("Image loaded with width:", img.width, "and height:", img.height);
-
-  canvas.width = img.width;
-  canvas.height = img.height;
-
-  ctx.drawImage(img, 0, 0);
-
-  try {
-    var imageData = ctx.getImageData(0, 0, img.width, img.height);
-    console.log("Image data successfully retrieved:", imageData);
-    // Process imageData here
-  } catch (error) {
-    console.error("Error accessing image data: ", error);
-  }
-};
-
-img.onerror = function () {
-  console.error("Failed to load image");
-};
-
-$(document).ready(function () {
+  // Initialize OWL Carousel
   $("#owl-demo").owlCarousel({
     items: 1, // Adjust based on your requirements
     loop: true,
     autoplay: true,
     autoplayTimeout: 3000, // Adjust based on your requirements
-    autoplayHoverPause: true,
+    autoplayHoverPause: true
+  });
+
+  // Attach click event to the carousel item
+  $('#owl-demo .item').on('click', function() {
+    window.location.href = 'https://kebbell.github.io/keb-radio'; // Change this to your desired URL
   });
 });
+
+
 
 /////////////////////////////////////
 // TIC TAC TOE GAME
