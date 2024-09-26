@@ -362,13 +362,14 @@ const resetBtn = document.getElementById('resetBtn'); // Select the reset button
 const scoreCard = document.getElementById('scoreCard'); // Select the scorecard for displaying winner
 
 const maxScore = 20; // Set max score for winning
+const initialSpeed = 4; // Store the initial ball speed
 
 // Ball object
 const ball = {
   x: canvas.width / 2,
   y: canvas.height / 2,
   radius: 10,
-  speed: 4,
+  speed: initialSpeed, // Use the initial speed for the ball
   velocityX: 4,
   velocityY: 4,
   color: 'white',
@@ -438,12 +439,12 @@ function movePaddle(event) {
   }
 }
 
-// Reset the ball after a point
+// Reset the ball after a point and restore initial speed
 function resetBall() {
   ball.x = canvas.width / 2;
   ball.y = canvas.height / 2;
   ball.velocityX = -ball.velocityX;
-  ball.speed = 4;
+  ball.speed = initialSpeed; // Reset the ball's speed to the initial value
 }
 
 // Collision detection
@@ -465,23 +466,23 @@ function collision(b, p) {
 function checkWinner() {
   if (user.score >= maxScore) {
     scoreCard.innerText = 'User wins with 20 points!';
-    stopGame();
+    setTimeout(() => {
+      resetGame();
+    }, 2000); // Wait 2 seconds before resetting the game
   } else if (computer.score >= maxScore) {
     scoreCard.innerText = 'Computer wins with 20 points!';
-    stopGame();
+    setTimeout(() => {
+      resetGame();
+    }, 2000); // Wait 2 seconds before resetting the game
   }
 }
 
-// Stop the game by halting the game loop
-function stopGame() {
-  clearInterval(gameInterval);
-}
-
-// Reset game
+// Reset game, reset speed, and restart
 function resetGame() {
   user.score = 0;
   computer.score = 0;
-  resetBall();
+  ball.speed = initialSpeed; // Reset ball speed
+  resetBall(); // Reset ball position and speed
   scoreCard.innerText = ''; // Clear the scorecard
   gameInterval = setInterval(gameLoop, 1000 / fps); // Restart the game loop
 }
