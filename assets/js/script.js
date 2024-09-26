@@ -360,7 +360,7 @@ const context = canvas.getContext('2d');
 const resetBtn = document.getElementById('resetBtn'); // Select the reset button
 const scoreCard = document.getElementById('scoreCard'); // Select the scorecard for displaying winner
 
-const maxScore = 20; // Set max score for winning
+const maxScore = 10; // Set max score for winning
 const initialSpeed = 4; // Store the initial ball speed
 
 // Ball object
@@ -464,12 +464,12 @@ function collision(b, p) {
 // Check if a player has won (reached 20 points)
 function checkWinner() {
   if (user.score >= maxScore) {
-    scoreCard.innerText = 'User wins with 20 points!';
+    scoreCard.innerText = 'User wins with 10 points!';
     setTimeout(() => {
       resetGame();
     }, 2000); // Wait 2 seconds before resetting the game
   } else if (computer.score >= maxScore) {
-    scoreCard.innerText = 'Computer wins with 20 points!';
+    scoreCard.innerText = 'Computer wins with 10 points!';
     setTimeout(() => {
       resetGame();
     }, 2000); // Wait 2 seconds before resetting the game
