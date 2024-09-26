@@ -487,6 +487,24 @@ canvas {
   }
 }
 
+/* Scorecard Styles */
+#scoreCard {
+  margin-top: 20px;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  canvas {
+    max-width: 100%;
+  }
+  #resetBtn {
+    width: 100px;
+    font-size: 16px;
+  }
+}
+
 
 img {
   opacity: 0.8;

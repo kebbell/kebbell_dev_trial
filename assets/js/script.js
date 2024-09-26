@@ -358,6 +358,7 @@ $("#radio").click(function () {
 
 const canvas = document.getElementById('pongCanvas');
 const context = canvas.getContext('2d');
+const resetBtn = document.getElementById('resetBtn'); // Select the reset button
 
 // Ball object
 const ball = {
@@ -523,6 +524,14 @@ function render() {
   context.fillText(computer.score, 3 * canvas.width / 4, canvas.height / 5);
 }
 
+// Reset game
+function resetGame() {
+  // Reset the scores and ball position
+  user.score = 0;
+  computer.score = 0;
+  resetBall();
+}
+
 // Game loop
 function gameLoop() {
   update();
@@ -539,24 +548,5 @@ canvas.addEventListener('touchmove', movePaddle);
 const fps = 60;
 setInterval(gameLoop, 1000 / fps);
 
-
-// Adjust canvas size dynamically based on window size
-function resizeCanvas() {
-  const aspectRatio = 600 / 400;  // Original canvas aspect ratio
-  let width = window.innerWidth;
-  let height = window.innerHeight;
-
-  // Maintain aspect ratio
-  if (width / height > aspectRatio) {
-    width = height * aspectRatio;
-  } else {
-    height = width / aspectRatio;
-  }
-
-  canvas.width = width;
-  canvas.height = height;
-}
-
-// Call resizeCanvas on page load and window resize
-window.addEventListener('load', resizeCanvas);
-window.addEventListener('resize', resizeCanvas);
+// Add event listener to the reset button
+resetBtn.addEventListener('click', resetGame);
