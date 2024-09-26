@@ -354,3 +354,180 @@ $("#radio").click(function () {
 
 // requestAnimationFrame(loop);
 
+// Pong
+
+const canvas = document.getElementById('pongCanvas');
+const context = canvas.getContext('2d');
+
+// Ball object
+const ball = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  radius: 10,
+  speed: 4,
+  velocityX: 4,
+  velocityY: 4,
+  color: 'white',
+};
+
+// Paddle object
+const paddleWidth = 10;
+const paddleHeight = 100;
+
+const user = {
+  x: 0, // Left paddle
+  y: (canvas.height - paddleHeight) / 2,
+  width: paddleWidth,
+  height: paddleHeight,
+  color: 'white',
+  score: 0,
+};
+
+const computer = {
+  x: canvas.width - paddleWidth, // Right paddle
+  y: (canvas.height - paddleHeight) / 2,
+  width: paddleWidth,
+  height: paddleHeight,
+  color: 'white',
+  score: 0,
+};
+
+// Net object
+const net = {
+  x: (canvas.width - 2) / 2,
+  y: 0,
+  width: 2,
+  height: 10,
+  color: 'white',
+};
+
+// Draw the net
+function drawNet() {
+  for (let i = 0; i <= canvas.height; i += 15) {
+    context.fillStyle = net.color;
+    context.fillRect(net.x, net.y + i, net.width, net.height);
+  }
+}
+
+// Draw the paddle
+function drawPaddle(x, y, width, height, color) {
+  context.fillStyle = color;
+  context.fillRect(x, y, width, height);
+}
+
+// Draw the ball
+function drawBall(x, y, radius, color) {
+  context.fillStyle = color;
+  context.beginPath();
+  context.arc(x, y, radius, 0, Math.PI * 2, false);
+  context.closePath();
+  context.fill();
+}
+
+// Move the paddle
+function movePaddle(event) {
+  let rect = canvas.getBoundingClientRect();
+  user.y = event.clientY - rect.top - user.height / 2;
+}
+
+// Reset the ball after a point
+function resetBall() {
+  ball.x = canvas.width / 2;
+  ball.y = canvas.height / 2;
+  ball.velocityX = -ball.velocityX;
+  ball.speed = 4;
+}
+
+// Collision detection
+function collision(b, p) {
+  p.top = p.y;
+  p.bottom = p.y + p.height;
+  p.left = p.x;
+  p.right = p.x + p.width;
+
+  b.top = b.y - b.radius;
+  b.bottom = b.y + b.radius;
+  b.left = b.x - b.radius;
+  b.right = b.x + b.radius;
+
+  return p.left < b.right && p.top < b.bottom && p.right > b.left && p.bottom > b.top;
+}
+
+// Update game state
+function update() {
+  // Move the ball
+  ball.x += ball.velocityX;
+  ball.y += ball.velocityY;
+
+  // AI for the computer paddle
+  computer.y += (ball.y - (computer.y + computer.height / 2)) * 0.1;
+
+  // Collision detection for top and bottom wall
+  if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+    ball.velocityY = -ball.velocityY;
+  }
+
+  // Check if the ball hit the user or computer paddle
+  let player = (ball.x < canvas.width / 2) ? user : computer;
+  if (collision(ball, player)) {
+    // Normalize the angle
+    let collidePoint = (ball.y - (player.y + player.height / 2)) / (player.height / 2);
+    let angleRad = (Math.PI / 4) * collidePoint;
+
+    // Direction of the ball after collision
+    let direction = (ball.x < canvas.width / 2) ? 1 : -1;
+
+    // Change velocity
+    ball.velocityX = direction * ball.speed * Math.cos(angleRad);
+    ball.velocityY = ball.speed * Math.sin(angleRad);
+
+    // Increase ball speed
+    ball.speed += 0.5;
+  }
+
+  // Check if the ball goes out of bounds (score)
+  if (ball.x - ball.radius < 0) {
+    // Computer scores
+    computer.score++;
+    resetBall();
+  } else if (ball.x + ball.radius > canvas.width) {
+    // User scores
+    user.score++;
+    resetBall();
+  }
+}
+
+// Render the game objects
+function render() {
+  // Clear the canvas
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw the net
+  drawNet();
+
+  // Draw the user and computer paddles
+  drawPaddle(user.x, user.y, user.width, user.height, user.color);
+  drawPaddle(computer.x, computer.y, computer.width, computer.height, computer.color);
+
+  // Draw the ball
+  drawBall(ball.x, ball.y, ball.radius, ball.color);
+
+  // Draw the scores
+  context.fillStyle = 'white';
+  context.font = '35px Arial';
+  context.fillText(user.score, canvas.width / 4, canvas.height / 5);
+  context.fillText(computer.score, 3 * canvas.width / 4, canvas.height / 5);
+}
+
+// Game loop
+function gameLoop() {
+  update();
+  render();
+}
+
+// Control the user paddle with mouse movement
+canvas.addEventListener('mousemove', movePaddle);
+
+// Run the game loop 60 times per second
+const fps = 60;
+setInterval(gameLoop, 1000 / fps);
