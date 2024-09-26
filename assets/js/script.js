@@ -427,7 +427,11 @@ function drawBall(x, y, radius, color) {
 // Move the paddle
 function movePaddle(event) {
   let rect = canvas.getBoundingClientRect();
-  user.y = event.clientY - rect.top - user.height / 2;
+  if (event.type === 'mousemove') {
+    user.y = event.clientY - rect.top - user.height / 2;
+  } else if (event.type === 'touchmove') {
+    user.y = event.touches[0].clientY - rect.top - user.height / 2;
+  }
 }
 
 // Reset the ball after a point
@@ -525,8 +529,11 @@ function gameLoop() {
   render();
 }
 
-// Control the user paddle with mouse movement
+// Control the user paddle with mouse movement on desktop
 canvas.addEventListener('mousemove', movePaddle);
+
+// Control the user paddle with touch movement on mobile
+canvas.addEventListener('touchmove', movePaddle);
 
 // Run the game loop 60 times per second
 const fps = 60;
