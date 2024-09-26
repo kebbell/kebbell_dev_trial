@@ -120,9 +120,6 @@ $("#radio").click(function () {
     window.location.href = "https://kebbell.github.io/SEK";
   });
 
-  
-
-
 
 /////////////////////////////////////
 // TIC TAC TOE GAME
@@ -235,6 +232,8 @@ $("#radio").click(function () {
 //             overlay.classList.add("active");
 //         }, 1750);
 //     }
+
+
 // SNAKE GAME
 const canvas3 = document.getElementById("game");
 const context = canvas3.getContext("2d");
