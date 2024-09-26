@@ -538,3 +538,25 @@ canvas.addEventListener('touchmove', movePaddle);
 // Run the game loop 60 times per second
 const fps = 60;
 setInterval(gameLoop, 1000 / fps);
+
+
+// Adjust canvas size dynamically based on window size
+function resizeCanvas() {
+  const aspectRatio = 600 / 400;  // Original canvas aspect ratio
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+
+  // Maintain aspect ratio
+  if (width / height > aspectRatio) {
+    width = height * aspectRatio;
+  } else {
+    height = width / aspectRatio;
+  }
+
+  canvas.width = width;
+  canvas.height = height;
+}
+
+// Call resizeCanvas on page load and window resize
+window.addEventListener('load', resizeCanvas);
+window.addEventListener('resize', resizeCanvas);
