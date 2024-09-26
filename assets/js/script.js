@@ -359,6 +359,9 @@ $("#radio").click(function () {
 const canvas = document.getElementById('pongCanvas');
 const context = canvas.getContext('2d');
 const resetBtn = document.getElementById('resetBtn'); // Select the reset button
+const scoreCard = document.getElementById('scoreCard'); // Select the scorecard for displaying winner
+
+const maxScore = 20; // Set max score for winning
 
 // Ball object
 const ball = {
@@ -458,6 +461,31 @@ function collision(b, p) {
   return p.left < b.right && p.top < b.bottom && p.right > b.left && p.bottom > b.top;
 }
 
+// Check if a player has won (reached 20 points)
+function checkWinner() {
+  if (user.score >= maxScore) {
+    scoreCard.innerText = 'User wins with 20 points!';
+    stopGame();
+  } else if (computer.score >= maxScore) {
+    scoreCard.innerText = 'Computer wins with 20 points!';
+    stopGame();
+  }
+}
+
+// Stop the game by halting the game loop
+function stopGame() {
+  clearInterval(gameInterval);
+}
+
+// Reset game
+function resetGame() {
+  user.score = 0;
+  computer.score = 0;
+  resetBall();
+  scoreCard.innerText = ''; // Clear the scorecard
+  gameInterval = setInterval(gameLoop, 1000 / fps); // Restart the game loop
+}
+
 // Update game state
 function update() {
   // Move the ball
@@ -492,13 +520,13 @@ function update() {
 
   // Check if the ball goes out of bounds (score)
   if (ball.x - ball.radius < 0) {
-    // Computer scores
     computer.score++;
     resetBall();
+    checkWinner();
   } else if (ball.x + ball.radius > canvas.width) {
-    // User scores
     user.score++;
     resetBall();
+    checkWinner();
   }
 }
 
@@ -524,14 +552,6 @@ function render() {
   context.fillText(computer.score, 3 * canvas.width / 4, canvas.height / 5);
 }
 
-// Reset game
-function resetGame() {
-  // Reset the scores and ball position
-  user.score = 0;
-  computer.score = 0;
-  resetBall();
-}
-
 // Game loop
 function gameLoop() {
   update();
@@ -546,7 +566,7 @@ canvas.addEventListener('touchmove', movePaddle);
 
 // Run the game loop 60 times per second
 const fps = 60;
-setInterval(gameLoop, 1000 / fps);
+let gameInterval = setInterval(gameLoop, 1000 / fps);
 
 // Add event listener to the reset button
 resetBtn.addEventListener('click', resetGame);
