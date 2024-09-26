@@ -481,11 +481,15 @@ function checkWinner() {
 function resetGame() {
   user.score = 0;
   computer.score = 0;
-  ball.speed = initialSpeed; // Reset ball speed
-  resetBall(); // Reset ball position and speed
+  ball.x = canvas.width / 2; // Reset ball position
+  ball.y = canvas.height / 2; // Reset ball position
+  ball.velocityX = initialSpeed; // Reset ball velocity to initial speed
+  ball.velocityY = initialSpeed; // Reset ball velocity to initial speed
+  ball.speed = initialSpeed; // Reset ball speed to the original speed
   scoreCard.innerText = ''; // Clear the scorecard
   gameInterval = setInterval(gameLoop, 1000 / fps); // Restart the game loop
 }
+
 
 // Update game state
 function update() {
