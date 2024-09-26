@@ -460,6 +460,33 @@ canvas {
   }
 }
 
+/* Reset Button Styles */
+#resetBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: white;
+  background-color: #555;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+}
+
+#resetBtn:hover {
+  background-color: #777;
+}
+
+@media (max-width: 600px) {
+  canvas {
+    max-width: 100%;
+  }
+  #resetBtn {
+    width: 100px;
+    font-size: 16px;
+  }
+}
+
 
 img {
   opacity: 0.8;
