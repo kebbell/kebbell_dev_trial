@@ -355,7 +355,6 @@ $("#radio").click(function () {
 // requestAnimationFrame(loop);
 
 // Pong
-
 const canvas = document.getElementById('pongCanvas');
 const context = canvas.getContext('2d');
 const resetBtn = document.getElementById('resetBtn'); // Select the reset button
@@ -435,6 +434,7 @@ function movePaddle(event) {
   if (event.type === 'mousemove') {
     user.y = event.clientY - rect.top - user.height / 2;
   } else if (event.type === 'touchmove') {
+    event.preventDefault(); // Prevent scrolling when touching canvas
     user.y = event.touches[0].clientY - rect.top - user.height / 2;
   }
 }
@@ -444,7 +444,6 @@ function resetBall() {
   ball.x = canvas.width / 2;
   ball.y = canvas.height / 2;
   ball.velocityX = -ball.velocityX;
-  ball.speed = initialSpeed; // Reset the ball's speed to the initial value
 }
 
 // Collision detection
@@ -489,7 +488,6 @@ function resetGame() {
   scoreCard.innerText = ''; // Clear the scorecard
   gameInterval = setInterval(gameLoop, 1000 / fps); // Restart the game loop
 }
-
 
 // Update game state
 function update() {
@@ -567,7 +565,7 @@ function gameLoop() {
 canvas.addEventListener('mousemove', movePaddle);
 
 // Control the user paddle with touch movement on mobile
-canvas.addEventListener('touchmove', movePaddle);
+canvas.addEventListener('touchmove', movePaddle, { passive: false }); // Set passive to false to allow preventDefault
 
 // Run the game loop 60 times per second
 const fps = 60;
