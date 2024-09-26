@@ -112,12 +112,12 @@ $(document).ready(function () {
 
   // Attach click event to the carousel item
   $('#owl-demo .item').on('click', function() {
-    window.location.href = 'https://kebbell.github.io/keb-radio'; // Change this to your desired URL
+    window.location.href = 'https://kebbell.github.io/SEK'; // Change this to your desired URL
   });
 });
 
 $("#radio").click(function () {
-    window.location.href = "https://kebbell.github.io/keb-radio";
+    window.location.href = "https://kebbell.github.io/SEK";
   });
 
 
