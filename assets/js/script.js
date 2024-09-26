@@ -358,6 +358,7 @@ $("#radio").click(function () {
 const canvas = document.getElementById('pongCanvas');
 const context = canvas.getContext('2d');
 const resetBtn = document.getElementById('resetBtn'); // Select the reset button
+const backButton = document.querySelector('.btn.btn-rabbit.back'); // Select the back button
 const scoreCard = document.getElementById('scoreCard'); // Select the scorecard for displaying winner
 
 const maxScore = 10; // Set max score for winning
@@ -461,7 +462,7 @@ function collision(b, p) {
   return p.left < b.right && p.top < b.bottom && p.right > b.left && p.bottom > b.top;
 }
 
-// Check if a player has won (reached 20 points)
+// Check if a player has won (reached 10 points)
 function checkWinner() {
   if (user.score >= maxScore) {
     scoreCard.innerText = 'User wins with 10 points!';
@@ -487,6 +488,13 @@ function resetGame() {
   ball.speed = initialSpeed; // Reset ball speed to the original speed
   scoreCard.innerText = ''; // Clear the scorecard
   gameInterval = setInterval(gameLoop, 1000 / fps); // Restart the game loop
+}
+
+// Function to go back to home and reset the game
+function goToHome() {
+  resetGame(); // Reset the game
+  // Optionally add logic to navigate back to home, e.g.:
+  // window.location.href = 'home.html'; // Navigate to home page
 }
 
 // Update game state
@@ -571,5 +579,6 @@ canvas.addEventListener('touchmove', movePaddle, { passive: false }); // Set pas
 const fps = 60;
 let gameInterval = setInterval(gameLoop, 1000 / fps);
 
-// Add event listener to the reset button
+// Add event listeners
 resetBtn.addEventListener('click', resetGame);
+backButton.addEventListener('click', goToHome);
