@@ -592,4 +592,3 @@ backButton.addEventListener('click', goToHome);
 
 
 
-
