@@ -10,12 +10,12 @@ $(document).ready(function () {
     $("#about_right").addClass("animated slideInRight");
   });
 
-  $("#projects").click(function () {
-    $("#index").fadeOut();
-    $("#projects_scroll").fadeIn();
-    $("#projects_left").addClass("animated slideInLeft");
-    $("#projects_right").addClass("animated slideInRight");
-  });
+  // $("#projects").click(function () {
+  //   $("#index").fadeOut();
+  //   $("#projects_scroll").fadeIn();
+  //   $("#projects_left").addClass("animated slideInLeft");
+  //   $("#projects_right").addClass("animated slideInRight");
+  // });
 
   $("#picks").click(function () {
     $("#index").fadeOut();
@@ -125,6 +125,10 @@ $(document).ready(function () {
 
 $("#radio").click(function () {
     window.location.href = "https://kebbell.github.io/SEK";
+  });
+
+  $("#projects").click(function () {
+    window.location.href = "";
   });
 
 
