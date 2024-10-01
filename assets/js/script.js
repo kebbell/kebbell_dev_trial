@@ -1,32 +1,66 @@
 $(document).ready(function () {
   // Hide all sections initially
-  const sections = [
-    "#about_scroll",
-    "#picks_scroll",
-    "#music_scroll",
-    "#games_scroll",
-    "#totw_scroll",
-    "#contact_scroll"
-  ];
-  $(sections.join(', ')).fadeOut();
-
-  // Function to handle section transitions
-  function showSection(section, leftAnim, rightAnim) {
-    $("#index").fadeOut();
-    $(section).fadeIn();
-    $(leftAnim).addClass("animated slideInLeft");
-    $(rightAnim).addClass("animated slideInRight");
-  }
+  $("#about_scroll, #picks_scroll, #music_scroll, #games_scroll, #totw_scroll, #contact_scroll").fadeOut();
 
   // Define click events for various sections
-  $("#about").click(() => showSection("#about_scroll", "#about_left", "#about_right"));
-  $("#picks").click(() => showSection("#picks_scroll", "#picks_left", "#picks_right"));
-  $("#music").click(() => showSection("#music_scroll", "#music_left", "#music_right"));
-  $("#games").click(() => showSection("#games_scroll", "#games_left", "#games_right"));
-  $("#totw").click(() => showSection("#totw_scroll", "#totw_left", "#totw_right"));
-  $("#contact").click(() => showSection("#contact_scroll", "#contact_left", "#contact_right"));
+  $("#about").click(function () {
+    $("#index").fadeOut();
+    $("#about_scroll").fadeIn();
+    $("#about_left").addClass("animated slideInLeft");
+    $("#about_right").addClass("animated slideInRight");
+  });
 
-  // Back button functionality
+  // $("#projects").click(function () {
+  //   $("#index").fadeOut();
+  //   $("#projects_scroll").fadeIn();
+  //   $("#projects_left").addClass("animated slideInLeft");
+  //   $("#projects_right").addClass("animated slideInRight");
+  // });
+
+  $("#picks").click(function () {
+    $("#index").fadeOut();
+    $("#picks_scroll").fadeIn();
+    $("#picks_left").addClass("animated slideInLeft");
+    $("#picks_right").addClass("animated slideInRight");
+  });
+
+  $("#music").click(function () {
+    $("#index").fadeOut();
+    $("#music_scroll").fadeIn();
+    $("#music_left").addClass("animated slideInLeft");
+    $("#music_right").addClass("animated slideInRight");
+  });
+
+  // $("#radio").click(function () {
+  //   $("#index").fadeOut();
+  //   $("#radio_scroll").fadeIn();
+  //   $("#radio_left").addClass("animated slideInLeft");
+  //   $("#radio_right").addClass("animated slideInRight");
+  // });
+
+  $("#games").click(function () {
+    $("#index").fadeOut();
+    $("#games_scroll").fadeIn();
+    $("#games_left").addClass("animated slideInLeft");
+    $("#games_right").addClass("animated slideInRight");
+  });
+
+  $("#totw_scroll").fadeOut(); // Ensure that #totw_scroll is hidden initially
+
+  $("#totw").click(function () {
+    $("#index").fadeOut();
+    $("#totw_scroll").fadeIn();
+    $("#totw_left").addClass("animated slideInLeft");
+    $("#totw_right").addClass("animated slideInRight");
+  });
+
+  $("#contact").click(function () {
+    $("#index").fadeOut();
+    $("#contact_scroll").fadeIn();
+    $("#contact_left").addClass("animated slideInLeft");
+    $("#contact_right").addClass("animated slideInRight");
+  });
+
   $(".back").click(function () {
     $(".pages").fadeOut();
     $("#index").fadeIn();
@@ -35,27 +69,34 @@ $(document).ready(function () {
   });
 
   // Prevent arrow key scrolling
-  window.addEventListener("keydown", function (e) {
-    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
-      e.preventDefault();
-    }
-  }, false);
+  window.addEventListener(
+    "keydown",
+    function (e) {
+      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
+        e.preventDefault();
+      }
+    },
+    false
+  );
 
   // Image handling
-  const img = new Image();
+  var img = new Image();
   img.crossOrigin = "Anonymous"; // Handle CORS issues if supported by the server
   img.src = "assets/images/IMG_9248 copy.jpg";
 
   img.onload = function () {
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext("2d");
+
+    console.log("Image loaded with width:", img.width, "and height:", img.height);
 
     canvas.width = img.width;
     canvas.height = img.height;
+
     ctx.drawImage(img, 0, 0);
 
     try {
-      const imageData = ctx.getImageData(0, 0, img.width, img.height);
+      var imageData = ctx.getImageData(0, 0, img.width, img.height);
       console.log("Image data successfully retrieved:", imageData);
       // Process imageData here
     } catch (error) {
@@ -76,21 +117,23 @@ $(document).ready(function () {
     autoplayHoverPause: true
   });
 
-  // Attach click event to the carousel items for redirection
+  // Attach click event to the carousel item
   $('#owl-demo .item').on('click', function() {
-    const itemIndex = $(this).index(); // Get the index of the clicked item
-    if (itemIndex === 0) {
-      window.location.href = 'https://kebbell.github.io/SEK'; // Redirect for first item
-    } else if (itemIndex === 1) {
-      window.location.href = 'https://github.com/kebbell?tab=repositories'; // Redirect for second item
-    }
+    window.location.href = 'https://kebbell.github.io/SEK'; // Change this to your desired URL
   });
-
-  // Click events for individual buttons
-  $("#radio").click(() => window.location.href = "https://kebbell.github.io/SEK");
-  $("#projects").click(() => window.location.href = "https://github.com/kebbell?tab=repositories");
 });
 
+$('#owl-demo .item').on('click', function() {
+  window.location.href = 'https://github.com/kebbell?tab=repositories'; // Change this to your desired URL
+});
+
+$("#radio").click(function () {
+    window.location.href = "https://kebbell.github.io/SEK";
+  });
+
+  $("#projects").click(function () {
+    window.location.href = "https://github.com/kebbell?tab=repositories";
+  });
 
 
 /////////////////////////////////////
@@ -342,8 +385,8 @@ const ball = {
   y: canvas.height / 2,
   radius: 10,
   speed: initialSpeed, // Use the initial speed for the ball
-  velocityX: initialSpeed, // Start with initial speed
-  velocityY: initialSpeed, // Start with initial speed
+  velocityX: 4,
+  velocityY: 4,
   color: 'white',
 };
 
@@ -416,7 +459,7 @@ function movePaddle(event) {
 function resetBall() {
   ball.x = canvas.width / 2;
   ball.y = canvas.height / 2;
-  ball.velocityX = -ball.velocityX; // Reverse ball direction
+  ball.velocityX = -ball.velocityX;
 }
 
 // Collision detection
@@ -438,19 +481,26 @@ function collision(b, p) {
 function checkWinner() {
   if (user.score >= maxScore) {
     scoreCard.innerText = 'User wins with 10 points!';
-    setTimeout(resetGame, 2000); // Wait 2 seconds before resetting the game
+    setTimeout(() => {
+      resetGame();
+    }, 2000); // Wait 2 seconds before resetting the game
   } else if (computer.score >= maxScore) {
     scoreCard.innerText = 'Computer wins with 10 points!';
-    setTimeout(resetGame, 2000); // Wait 2 seconds before resetting the game
+    setTimeout(() => {
+      resetGame();
+    }, 2000); // Wait 2 seconds before resetting the game
   }
 }
 
 // Reset game, reset speed, and restart
 function resetGame() {
-  clearInterval(gameInterval); // Stop the game loop
   user.score = 0;
   computer.score = 0;
-  resetBall(); // Reset ball position and direction
+  ball.x = canvas.width / 2; // Reset ball position
+  ball.y = canvas.height / 2; // Reset ball position
+  ball.velocityX = initialSpeed; // Reset ball velocity to initial speed
+  ball.velocityY = initialSpeed; // Reset ball velocity to initial speed
+  ball.speed = initialSpeed; // Reset ball speed to the original speed
   scoreCard.innerText = ''; // Clear the scorecard
   gameInterval = setInterval(gameLoop, 1000 / fps); // Restart the game loop
 }
@@ -473,7 +523,7 @@ function update() {
 
   // Collision detection for top and bottom wall
   if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
-    ball.velocityY = -ball.velocityY; // Reverse ball direction on wall hit
+    ball.velocityY = -ball.velocityY;
   }
 
   // Check if the ball hit the user or computer paddle
@@ -547,3 +597,6 @@ let gameInterval = setInterval(gameLoop, 1000 / fps);
 // Add event listeners
 resetBtn.addEventListener('click', resetGame);
 backButton.addEventListener('click', goToHome);
+
+
+
