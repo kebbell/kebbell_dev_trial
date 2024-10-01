@@ -128,7 +128,7 @@ $("#radio").click(function () {
   });
 
   $("#projects").click(function () {
-    window.location.href = "";
+    window.location.href = "https://github.com/kebbell?tab=repositories";
   });
 
 
