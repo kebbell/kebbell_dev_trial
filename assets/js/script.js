@@ -588,36 +588,19 @@ function gameLoop() {
   render();
 }
 
-// Ensure the DOM is fully loaded before running the script
-document.addEventListener('DOMContentLoaded', function () {
-  // Get DOM elements
-  const resetBtn = document.getElementById('resetBtn');
-  const backButton = document.getElementById('backButton');
-  const canvas = document.getElementById('gameCanvas'); // Ensure canvas is correctly selected
+// Control the user paddle with mouse movement on desktop
+canvas.addEventListener('mousemove', movePaddle);
 
-  if (canvas) {
-    // Control the user paddle with mouse movement on desktop
-    canvas.addEventListener('mousemove', movePaddle);
+// Control the user paddle with touch movement on mobile
+canvas.addEventListener('touchmove', movePaddle, { passive: false }); // Set passive to false to allow preventDefault
 
-    // Control the user paddle with touch movement on mobile
-    canvas.addEventListener('touchmove', movePaddle, { passive: false }); // Set passive to false to allow preventDefault
-  }
+// Run the game loop 60 times per second
+const fps = 60;
+let gameInterval = setInterval(gameLoop, 1000 / fps);
 
-  // Run the game loop 60 times per second
-  const fps = 60;
-  let gameInterval = setInterval(gameLoop, 1000 / fps);
+// Add event listeners
+resetBtn.addEventListener('click', resetGame);
+backButton.addEventListener('click', goToHome);
 
-  // Add event listeners if the elements exist
-  if (resetBtn) {
-    resetBtn.addEventListener('click', resetGame);
-  } else {
-    console.error("Reset button not found");
-  }
 
-  if (backButton) {
-    backButton.addEventListener('click', goToHome);
-  } else {
-    console.error("Back button not found");
-  }
-})
-});
+
