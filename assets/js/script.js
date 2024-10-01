@@ -389,8 +389,8 @@ const ball = {
   y: canvas.height / 2,
   radius: 10,
   speed: initialSpeed, // Use the initial speed for the ball
-  velocityX: 4,
-  velocityY: 4,
+  velocityX: initialSpeed, // Start with initial speed
+  velocityY: initialSpeed, // Start with initial speed
   color: 'white',
 };
 
@@ -463,7 +463,7 @@ function movePaddle(event) {
 function resetBall() {
   ball.x = canvas.width / 2;
   ball.y = canvas.height / 2;
-  ball.velocityX = -ball.velocityX;
+  ball.velocityX = -ball.velocityX; // Reverse ball direction
 }
 
 // Collision detection
@@ -485,26 +485,19 @@ function collision(b, p) {
 function checkWinner() {
   if (user.score >= maxScore) {
     scoreCard.innerText = 'User wins with 10 points!';
-    setTimeout(() => {
-      resetGame();
-    }, 2000); // Wait 2 seconds before resetting the game
+    setTimeout(resetGame, 2000); // Wait 2 seconds before resetting the game
   } else if (computer.score >= maxScore) {
     scoreCard.innerText = 'Computer wins with 10 points!';
-    setTimeout(() => {
-      resetGame();
-    }, 2000); // Wait 2 seconds before resetting the game
+    setTimeout(resetGame, 2000); // Wait 2 seconds before resetting the game
   }
 }
 
 // Reset game, reset speed, and restart
 function resetGame() {
+  clearInterval(gameInterval); // Stop the game loop
   user.score = 0;
   computer.score = 0;
-  ball.x = canvas.width / 2; // Reset ball position
-  ball.y = canvas.height / 2; // Reset ball position
-  ball.velocityX = initialSpeed; // Reset ball velocity to initial speed
-  ball.velocityY = initialSpeed; // Reset ball velocity to initial speed
-  ball.speed = initialSpeed; // Reset ball speed to the original speed
+  resetBall(); // Reset ball position and direction
   scoreCard.innerText = ''; // Clear the scorecard
   gameInterval = setInterval(gameLoop, 1000 / fps); // Restart the game loop
 }
@@ -527,7 +520,7 @@ function update() {
 
   // Collision detection for top and bottom wall
   if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
-    ball.velocityY = -ball.velocityY;
+    ball.velocityY = -ball.velocityY; // Reverse ball direction on wall hit
   }
 
   // Check if the ball hit the user or computer paddle
@@ -601,6 +594,3 @@ let gameInterval = setInterval(gameLoop, 1000 / fps);
 // Add event listeners
 resetBtn.addEventListener('click', resetGame);
 backButton.addEventListener('click', goToHome);
-
-
-
