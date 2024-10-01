@@ -117,23 +117,27 @@ $(document).ready(function () {
     autoplayHoverPause: true
   });
 
-  // Attach click event to the carousel item
-  $('#owl-demo .item').on('click', function() {
-    window.location.href = 'https://kebbell.github.io/SEK'; // Change this to your desired URL
-  });
-});
-
+// Attach click event to the carousel item
 $('#owl-demo .item').on('click', function() {
-  window.location.href = 'https://github.com/kebbell?tab=repositories'; // Change this to your desired URL
+  // Conditional logic to redirect based on the item's content or a data attribute
+  var itemIndex = $(this).index(); // Get the index of the clicked item
+
+  if (itemIndex === 0) {
+    window.location.href = 'https://kebbell.github.io/SEK'; // Redirect for first item
+  } else if (itemIndex === 1) {
+    window.location.href = 'https://github.com/kebbell?tab=repositories'; // Redirect for second item
+  }
 });
 
+// Click events for individual buttons
 $("#radio").click(function () {
-    window.location.href = "https://kebbell.github.io/SEK";
-  });
+  window.location.href = "https://kebbell.github.io/SEK";
+});
 
-  $("#projects").click(function () {
-    window.location.href = "https://github.com/kebbell?tab=repositories";
-  });
+$("#projects").click(function () {
+  window.location.href = "https://github.com/kebbell?tab=repositories";
+});
+
 
 
 /////////////////////////////////////
@@ -584,19 +588,36 @@ function gameLoop() {
   render();
 }
 
-// Control the user paddle with mouse movement on desktop
-canvas.addEventListener('mousemove', movePaddle);
+// Ensure the DOM is fully loaded before running the script
+document.addEventListener('DOMContentLoaded', function () {
+  // Get DOM elements
+  const resetBtn = document.getElementById('resetBtn');
+  const backButton = document.getElementById('backButton');
+  const canvas = document.getElementById('gameCanvas'); // Ensure canvas is correctly selected
 
-// Control the user paddle with touch movement on mobile
-canvas.addEventListener('touchmove', movePaddle, { passive: false }); // Set passive to false to allow preventDefault
+  if (canvas) {
+    // Control the user paddle with mouse movement on desktop
+    canvas.addEventListener('mousemove', movePaddle);
 
-// Run the game loop 60 times per second
-const fps = 60;
-let gameInterval = setInterval(gameLoop, 1000 / fps);
+    // Control the user paddle with touch movement on mobile
+    canvas.addEventListener('touchmove', movePaddle, { passive: false }); // Set passive to false to allow preventDefault
+  }
 
-// Add event listeners
-resetBtn.addEventListener('click', resetGame);
-backButton.addEventListener('click', goToHome);
+  // Run the game loop 60 times per second
+  const fps = 60;
+  let gameInterval = setInterval(gameLoop, 1000 / fps);
 
+  // Add event listeners if the elements exist
+  if (resetBtn) {
+    resetBtn.addEventListener('click', resetGame);
+  } else {
+    console.error("Reset button not found");
+  }
 
-
+  if (backButton) {
+    backButton.addEventListener('click', goToHome);
+  } else {
+    console.error("Back button not found");
+  }
+})
+});
