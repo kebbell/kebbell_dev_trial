@@ -1,66 +1,32 @@
 $(document).ready(function () {
   // Hide all sections initially
-  $("#about_scroll, #picks_scroll, #music_scroll, #games_scroll, #totw_scroll, #contact_scroll").fadeOut();
+  const sections = [
+    "#about_scroll",
+    "#picks_scroll",
+    "#music_scroll",
+    "#games_scroll",
+    "#totw_scroll",
+    "#contact_scroll"
+  ];
+  $(sections.join(', ')).fadeOut();
+
+  // Function to handle section transitions
+  function showSection(section, leftAnim, rightAnim) {
+    $("#index").fadeOut();
+    $(section).fadeIn();
+    $(leftAnim).addClass("animated slideInLeft");
+    $(rightAnim).addClass("animated slideInRight");
+  }
 
   // Define click events for various sections
-  $("#about").click(function () {
-    $("#index").fadeOut();
-    $("#about_scroll").fadeIn();
-    $("#about_left").addClass("animated slideInLeft");
-    $("#about_right").addClass("animated slideInRight");
-  });
+  $("#about").click(() => showSection("#about_scroll", "#about_left", "#about_right"));
+  $("#picks").click(() => showSection("#picks_scroll", "#picks_left", "#picks_right"));
+  $("#music").click(() => showSection("#music_scroll", "#music_left", "#music_right"));
+  $("#games").click(() => showSection("#games_scroll", "#games_left", "#games_right"));
+  $("#totw").click(() => showSection("#totw_scroll", "#totw_left", "#totw_right"));
+  $("#contact").click(() => showSection("#contact_scroll", "#contact_left", "#contact_right"));
 
-  // $("#projects").click(function () {
-  //   $("#index").fadeOut();
-  //   $("#projects_scroll").fadeIn();
-  //   $("#projects_left").addClass("animated slideInLeft");
-  //   $("#projects_right").addClass("animated slideInRight");
-  // });
-
-  $("#picks").click(function () {
-    $("#index").fadeOut();
-    $("#picks_scroll").fadeIn();
-    $("#picks_left").addClass("animated slideInLeft");
-    $("#picks_right").addClass("animated slideInRight");
-  });
-
-  $("#music").click(function () {
-    $("#index").fadeOut();
-    $("#music_scroll").fadeIn();
-    $("#music_left").addClass("animated slideInLeft");
-    $("#music_right").addClass("animated slideInRight");
-  });
-
-  // $("#radio").click(function () {
-  //   $("#index").fadeOut();
-  //   $("#radio_scroll").fadeIn();
-  //   $("#radio_left").addClass("animated slideInLeft");
-  //   $("#radio_right").addClass("animated slideInRight");
-  // });
-
-  $("#games").click(function () {
-    $("#index").fadeOut();
-    $("#games_scroll").fadeIn();
-    $("#games_left").addClass("animated slideInLeft");
-    $("#games_right").addClass("animated slideInRight");
-  });
-
-  $("#totw_scroll").fadeOut(); // Ensure that #totw_scroll is hidden initially
-
-  $("#totw").click(function () {
-    $("#index").fadeOut();
-    $("#totw_scroll").fadeIn();
-    $("#totw_left").addClass("animated slideInLeft");
-    $("#totw_right").addClass("animated slideInRight");
-  });
-
-  $("#contact").click(function () {
-    $("#index").fadeOut();
-    $("#contact_scroll").fadeIn();
-    $("#contact_left").addClass("animated slideInLeft");
-    $("#contact_right").addClass("animated slideInRight");
-  });
-
+  // Back button functionality
   $(".back").click(function () {
     $(".pages").fadeOut();
     $("#index").fadeIn();
@@ -69,34 +35,27 @@ $(document).ready(function () {
   });
 
   // Prevent arrow key scrolling
-  window.addEventListener(
-    "keydown",
-    function (e) {
-      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
-        e.preventDefault();
-      }
-    },
-    false
-  );
+  window.addEventListener("keydown", function (e) {
+    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
+      e.preventDefault();
+    }
+  }, false);
 
   // Image handling
-  var img = new Image();
+  const img = new Image();
   img.crossOrigin = "Anonymous"; // Handle CORS issues if supported by the server
   img.src = "assets/images/IMG_9248 copy.jpg";
 
   img.onload = function () {
-    var canvas = document.createElement("canvas");
-    var ctx = canvas.getContext("2d");
-
-    console.log("Image loaded with width:", img.width, "and height:", img.height);
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
 
     canvas.width = img.width;
     canvas.height = img.height;
-
     ctx.drawImage(img, 0, 0);
 
     try {
-      var imageData = ctx.getImageData(0, 0, img.width, img.height);
+      const imageData = ctx.getImageData(0, 0, img.width, img.height);
       console.log("Image data successfully retrieved:", imageData);
       // Process imageData here
     } catch (error) {
@@ -117,25 +76,19 @@ $(document).ready(function () {
     autoplayHoverPause: true
   });
 
-// Attach click event to the carousel item
-$('#owl-demo .item').on('click', function() {
-  // Conditional logic to redirect based on the item's content or a data attribute
-  var itemIndex = $(this).index(); // Get the index of the clicked item
+  // Attach click event to the carousel items for redirection
+  $('#owl-demo .item').on('click', function() {
+    const itemIndex = $(this).index(); // Get the index of the clicked item
+    if (itemIndex === 0) {
+      window.location.href = 'https://kebbell.github.io/SEK'; // Redirect for first item
+    } else if (itemIndex === 1) {
+      window.location.href = 'https://github.com/kebbell?tab=repositories'; // Redirect for second item
+    }
+  });
 
-  if (itemIndex === 0) {
-    window.location.href = 'https://kebbell.github.io/SEK'; // Redirect for first item
-  } else if (itemIndex === 1) {
-    window.location.href = 'https://github.com/kebbell?tab=repositories'; // Redirect for second item
-  }
-});
-
-// Click events for individual buttons
-$("#radio").click(function () {
-  window.location.href = "https://kebbell.github.io/SEK";
-});
-
-$("#projects").click(function () {
-  window.location.href = "https://github.com/kebbell?tab=repositories";
+  // Click events for individual buttons
+  $("#radio").click(() => window.location.href = "https://kebbell.github.io/SEK");
+  $("#projects").click(() => window.location.href = "https://github.com/kebbell?tab=repositories");
 });
 
 
