@@ -123,6 +123,10 @@ $(document).ready(function () {
   });
 });
 
+$('#owl-demo .item').on('click', function() {
+  window.location.href = 'https://github.com/kebbell?tab=repositories'; // Change this to your desired URL
+});
+
 $("#radio").click(function () {
     window.location.href = "https://kebbell.github.io/SEK";
   });
