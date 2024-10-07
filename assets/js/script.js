@@ -132,7 +132,7 @@ $("#radio").click(function () {
   });
 
   $("#projects").click(function () {
-    window.location.href = "https://github.com/kebbell?tab=repositories";
+    window.location.href = "https://github.com/kebbell/Personal-Projects/tree/main/Highlighted%20Projects";
   });
 
 
