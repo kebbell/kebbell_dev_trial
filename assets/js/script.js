@@ -132,8 +132,9 @@ $("#radio").click(function () {
 });
 
 $(".skill-btn1").click(function() {
-  if ($(this).text() === "Full Projects on Github") {
-    window.open("https://github.com/kebbell/Personal-Projects/tree/main/Highlighted%20Projects", '_blank');
+  const url = $(this).data("url");
+  if (url) {
+    window.open(url, '_blank');
   }
 });
 
