@@ -135,7 +135,6 @@ $("#radio").click(function () {
     window.location.href = "https://github.com/kebbell/Personal-Projects/tree/main/Highlighted%20Projects";
   });
 
-
 /////////////////////////////////////
 // TIC TAC TOE GAME
 // document.addEventListener('DOMContentLoaded', () => {
