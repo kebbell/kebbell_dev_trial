@@ -10,12 +10,12 @@ $(document).ready(function () {
     $("#about_right").addClass("animated slideInRight");
   });
 
-  // $("#projects").click(function () {
-  //   $("#index").fadeOut();
-  //   $("#projects_scroll").fadeIn();
-  //   $("#projects_left").addClass("animated slideInLeft");
-  //   $("#projects_right").addClass("animated slideInRight");
-  // });
+  $("#projects").click(function () {
+    $("#index").fadeOut();
+    $("#projects_scroll").fadeIn();
+    $("#projects_left").addClass("animated slideInLeft");
+    $("#projects_right").addClass("animated slideInRight");
+  });
 
   $("#picks").click(function () {
     $("#index").fadeOut();
@@ -131,9 +131,12 @@ $("#radio").click(function () {
   window.open("https://kebbell.github.io/SEK", '_blank');
 });
 
-$("#projects").click(function () {
-  window.open("https://github.com/kebbell/Personal-Projects/tree/main/Highlighted%20Projects", '_blank');
+$(".skill-btn1").click(function() {
+  if ($(this).text() === "Full Projects on Github") {
+    window.open("https://github.com/kebbell/Personal-Projects/tree/main/Highlighted%20Projects", '_blank');
+  }
 });
+
 
 
 /////////////////////////////////////

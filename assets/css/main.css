@@ -336,6 +336,60 @@ h1 {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Projects */
+.skill1 {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-btn1 {
+  background-color: #fff;
+  color: #111;
+  font-style: italic;
+  border: 1px solid #111;
+  border-radius: 0px !important;
+  transition: all 0.4s ease-in-out;
+  margin-bottom: 15px;
+  font-family: "Crimson";
+  padding: 10px 16px;
+  width: 90%;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.scrollable-projects {
+  max-height: 500px; /* Adjust height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px; /* Optional: add some padding */
+  border: 0px solid #111; /* Optional: add a border */
+  border-radius: 5px; /* Optional: add border radius */
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-btn1:hover {
+box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+color: #fff;
+background-color: #bb9e7d;
+border-color: #bb9e7d;
+}
+
+
 .skill-btn:hover,
 .skill-btn2:hover {
   transform: translateY(-3px) scale(1.15) rotate(2deg);
