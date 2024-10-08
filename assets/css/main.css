@@ -375,6 +375,12 @@ h1 {
   border-radius: 5px; /* Optional: add border radius */
 }
 
+.img-90 {
+  height: 750px;
+  width: auto; /* Maintain aspect ratio */
+}
+
+
 .skill {
   display: flex;
   flex-direction: column;
