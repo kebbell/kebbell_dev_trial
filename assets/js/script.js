@@ -124,16 +124,17 @@ $(document).ready(function () {
 });
 
 $('#owl-demo .item').on('click', function() {
-  window.location.href = 'https://github.com/kebbell?tab=repositories'; // Change this to your desired URL
+  window.open('https://github.com/kebbell?tab=repositories', '_blank');
 });
 
 $("#radio").click(function () {
-    window.location.href = "https://kebbell.github.io/SEK";
-  });
+  window.open("https://kebbell.github.io/SEK", '_blank');
+});
 
-  $("#projects").click(function () {
-    window.location.href = "https://github.com/kebbell/Personal-Projects/tree/main/Highlighted%20Projects";
-  });
+$("#projects").click(function () {
+  window.open("https://github.com/kebbell/Personal-Projects/tree/main/Highlighted%20Projects", '_blank');
+});
+
 
 /////////////////////////////////////
 // TIC TAC TOE GAME
