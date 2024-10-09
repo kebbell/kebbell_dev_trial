@@ -36,17 +36,23 @@ body {
   color: white; /* White text color */
   font-size: 16px;
   white-space: nowrap; /* Prevents text from breaking into multiple lines */
-  padding-left: 50%; /* Pushes text offscreen to the right initially */
-  animation: scrollText 80s linear infinite; /* Controls animation speed and loop */
+  padding-left: 100%; /* Pushes text offscreen to the right initially */
+  animation: scrollText 40s linear infinite; /* Controls animation speed and loop */
 }
 
-/* Keyframes for text scrolling */
+/* Duplicating the text */
+.announcement-text::before {
+  content: attr(data-text); /* Uses the same text for the before pseudo-element */
+  padding-left: 50px; /* Space between the two texts */
+}
+
+/* Keyframes for scrolling effect */
 @keyframes scrollText {
   0% {
-      transform: translateX(100%); /* Start offscreen to the right */
+    transform: translateX(0);
   }
   100% {
-      transform: translateX(-100%); /* End offscreen to the left */
+    transform: translateX(-100%);
   }
 }
 
