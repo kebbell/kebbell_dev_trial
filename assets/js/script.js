@@ -372,7 +372,6 @@ $(".skill-btn1").click(function() {
 // });
 
 // requestAnimationFrame(loop);
-
 // Pong
 const canvas = document.getElementById('pongCanvas');
 const context = canvas.getContext('2d');
@@ -382,6 +381,8 @@ const scoreCard = document.getElementById('scoreCard'); // Select the scorecard 
 
 const maxScore = 10; // Set max score for winning
 const initialSpeed = 4; // Store the initial ball speed
+
+let isPaused = false; // Track whether the game is paused
 
 // Ball object
 const ball = {
@@ -506,6 +507,7 @@ function resetGame() {
   ball.velocityY = initialSpeed; // Reset ball velocity to initial speed
   ball.speed = initialSpeed; // Reset ball speed to the original speed
   scoreCard.innerText = ''; // Clear the scorecard
+  isPaused = false; // Ensure the game is not paused after reset
   gameInterval = setInterval(gameLoop, 1000 / fps); // Restart the game loop
 }
 
@@ -518,68 +520,72 @@ function goToHome() {
 
 // Update game state
 function update() {
-  // Move the ball
-  ball.x += ball.velocityX;
-  ball.y += ball.velocityY;
+  if (!isPaused) { // Only update the game if not paused
+    // Move the ball
+    ball.x += ball.velocityX;
+    ball.y += ball.velocityY;
 
-  // AI for the computer paddle
-  computer.y += (ball.y - (computer.y + computer.height / 2)) * 0.1;
+    // AI for the computer paddle
+    computer.y += (ball.y - (computer.y + computer.height / 2)) * 0.1;
 
-  // Collision detection for top and bottom wall
-  if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
-    ball.velocityY = -ball.velocityY;
-  }
+    // Collision detection for top and bottom wall
+    if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+      ball.velocityY = -ball.velocityY;
+    }
 
-  // Check if the ball hit the user or computer paddle
-  let player = (ball.x < canvas.width / 2) ? user : computer;
-  if (collision(ball, player)) {
-    // Normalize the angle
-    let collidePoint = (ball.y - (player.y + player.height / 2)) / (player.height / 2);
-    let angleRad = (Math.PI / 4) * collidePoint;
+    // Check if the ball hit the user or computer paddle
+    let player = (ball.x < canvas.width / 2) ? user : computer;
+    if (collision(ball, player)) {
+      // Normalize the angle
+      let collidePoint = (ball.y - (player.y + player.height / 2)) / (player.height / 2);
+      let angleRad = (Math.PI / 4) * collidePoint;
 
-    // Direction of the ball after collision
-    let direction = (ball.x < canvas.width / 2) ? 1 : -1;
+      // Direction of the ball after collision
+      let direction = (ball.x < canvas.width / 2) ? 1 : -1;
 
-    // Change velocity
-    ball.velocityX = direction * ball.speed * Math.cos(angleRad);
-    ball.velocityY = ball.speed * Math.sin(angleRad);
+      // Change velocity
+      ball.velocityX = direction * ball.speed * Math.cos(angleRad);
+      ball.velocityY = ball.speed * Math.sin(angleRad);
 
-    // Increase ball speed
-    ball.speed += 0.5;
-  }
+      // Increase ball speed
+      ball.speed += 0.5;
+    }
 
-  // Check if the ball goes out of bounds (score)
-  if (ball.x - ball.radius < 0) {
-    computer.score++;
-    resetBall();
-    checkWinner();
-  } else if (ball.x + ball.radius > canvas.width) {
-    user.score++;
-    resetBall();
-    checkWinner();
+    // Check if the ball goes out of bounds (score)
+    if (ball.x - ball.radius < 0) {
+      computer.score++;
+      resetBall();
+      checkWinner();
+    } else if (ball.x + ball.radius > canvas.width) {
+      user.score++;
+      resetBall();
+      checkWinner();
+    }
   }
 }
 
 // Render the game objects
 function render() {
-  // Clear the canvas
-  context.clearRect(0, 0, canvas.width, canvas.height);
+  if (!isPaused) { // Only render if not paused
+    // Clear the canvas
+    context.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Draw the net
-  drawNet();
+    // Draw the net
+    drawNet();
 
-  // Draw the user and computer paddles
-  drawPaddle(user.x, user.y, user.width, user.height, user.color);
-  drawPaddle(computer.x, computer.y, computer.width, computer.height, computer.color);
+    // Draw the user and computer paddles
+    drawPaddle(user.x, user.y, user.width, user.height, user.color);
+    drawPaddle(computer.x, computer.y, computer.width, computer.height, computer.color);
 
-  // Draw the ball
-  drawBall(ball.x, ball.y, ball.radius, ball.color);
+    // Draw the ball
+    drawBall(ball.x, ball.y, ball.radius, ball.color);
 
-  // Draw the scores
-  context.fillStyle = 'white';
-  context.font = '35px Arial';
-  context.fillText(user.score, canvas.width / 4, canvas.height / 5);
-  context.fillText(computer.score, 3 * canvas.width / 4, canvas.height / 5);
+    // Draw the scores
+    context.fillStyle = 'white';
+    context.font = '35px Arial';
+    context.fillText(user.score, canvas.width / 4, canvas.height / 5);
+    context.fillText(computer.score, 3 * canvas.width / 4, canvas.height / 5);
+  }
 }
 
 // Game loop
@@ -588,11 +594,21 @@ function gameLoop() {
   render();
 }
 
+// Toggle pause with spacebar
+function togglePause(event) {
+  if (event.code === 'Space') {
+    isPaused = !isPaused;
+  }
+}
+
 // Control the user paddle with mouse movement on desktop
 canvas.addEventListener('mousemove', movePaddle);
 
 // Control the user paddle with touch movement on mobile
 canvas.addEventListener('touchmove', movePaddle, { passive: false }); // Set passive to false to allow preventDefault
+
+// Listen for spacebar to pause/unpause the game
+document.addEventListener('keydown', togglePause);
 
 // Run the game loop 60 times per second
 const fps = 60;
@@ -601,4 +617,3 @@ let gameInterval = setInterval(gameLoop, 1000 / fps);
 // Add event listeners
 resetBtn.addEventListener('click', resetGame);
 backButton.addEventListener('click', goToHome);
-
